@@ -1,6 +1,6 @@
-[![npm](https://img.shields.io/npm/v/@jetblack/date.svg)](https://www.npmjs.com/package/@jetblack/date) ![downloads](https://img.shields.io/npm/dt/@jetblack/date.svg) [![tests](https://github.com/rob-blackbourn/jetblack-js-date/workflows/Node.js%20tests/badge.svg)](https://github.com/rob-blackbourn/jetblack-js-date/actions)
+[![npm](https://img.shields.io/npm/v/@jetblack/date-tz.svg)](https://www.npmjs.com/package/@jetblack/date-tz) ![downloads](https://img.shields.io/npm/dt/@jetblack/date-tz.svg) [![tests](https://github.com/rob-blackbourn/jetblack-js-date-tz/workflows/Node.js%20tests/badge.svg)](https://github.com/rob-blackbourn/jetblack-js-date-tz/actions)
 
-# @jetblack/date
+# @jetblack/date-tz
 
 Timezone-aware date manipulation for JavaScript.
 
