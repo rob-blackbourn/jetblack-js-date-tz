@@ -1,0 +1,54 @@
+{
+  "name": "@jetblack/date-tz",
+  "private": false,
+  "version": "1.0.0-alpha.0",
+  "description": "Timezone aware date utilities",
+  "keywords": [
+    "date",
+    "timezone",
+    "iana",
+    "tzdata",
+    "tz"
+  ],
+  "main": "dist/cjs/index.js",
+  "browser": "dist/es/index.js",
+  "repository": "git@github.com:rob-blackbourn/jetblack-js-date-tz.git",
+  "homepage": "https://github.com/rob-blackbourn/jetblack-js-date-tz",
+  "bugs": "https://github.com/rob-blackbourn/jetblack-js-date-tz/issues",
+  "author": "Rob Blackbourn <rob.blackbourn@gmail.com>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "rimraf dist && rollup -c",
+    "dev": "rimraf dist && rollup -c -w",
+    "test": "jest",
+    "docs:build": "typedoc && cp assets/* docs",
+    "docs:serve": "http-server docs"
+  },
+  "devDependencies": {
+    "@jetblack/tzdata": "^0.4.0",
+    "@knodes/typedoc-plugin-pages": "^0.22.3",
+    "@rollup/plugin-typescript": "^11.1.1",
+    "@types/jest": "^27.4.1",
+    "http-server": "^14.1.0",
+    "jest": "^27.5.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.25.2",
+    "ts-jest": "^27.1.3",
+    "tslib": "^2.3.1",
+    "typedoc": "^0.22.13",
+    "typescript": "^4.6.2"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "printWidth": 80,
+    "arrowParens": "avoid",
+    "bracketsSpacing": true,
+    "bracketSameLine": false
+  },
+  "files": [
+    "dist"
+  ]
+}
