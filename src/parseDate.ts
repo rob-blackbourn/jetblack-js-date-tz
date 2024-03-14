@@ -50,7 +50,7 @@ function parseMonthName(
   const index = localeInfo.month[style].findIndex(
     x => x.localeCompare(name, localeInfo.locale, { sensitivity: 'base' }) == 0
   )
-  return index === -1 ? null : index
+  return index === -1 ? null : 1 + index
 }
 
 function parseDecade(value: string): number {
