@@ -18,7 +18,7 @@ import { DateTz } from './DateTz'
  * @returns The start of the day.
  */
 export function startOfDay(dateTz: DateTz): DateTz {
-  const { year, monthIndex, day } = dateTz.tz.dateParts(dateTz.date)
+  const { year, month, day } = dateTz.tz.dateParts(dateTz.date)
 
-  return new DateTz(year, monthIndex, day, dateTz.tz)
+  return new DateTz(year, month, day, dateTz.tz)
 }

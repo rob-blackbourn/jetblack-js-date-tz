@@ -22,9 +22,9 @@ describe('endOfYear', () => {
   for (const tz of [tzUtc, tzLocal, tzChicago, tzTokyo]) {
     describe(tz.name, () => {
       it('should find the last moment of the year', () => {
-        const date = new DateTz(2000, 0, 1, tz)
+        const date = new DateTz(2000, 1, 1, tz)
         const actual = endOfYear(date)
-        const expected = new DateTz(2000, 11, 31, 23, 59, 59, 999, tz)
+        const expected = new DateTz(2000, 12, 31, 23, 59, 59, 999, tz)
         expect(actual.toISOString()).toBe(expected.toISOString())
       })
     })

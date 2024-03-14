@@ -3,7 +3,7 @@
  */
 export interface DatePartResponse {
   year: number
-  monthIndex: number
+  month: number
   weekday: number
   day: number
   hours: number

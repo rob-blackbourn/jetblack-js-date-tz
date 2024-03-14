@@ -27,19 +27,19 @@ describe('adjustBusinessDay', () => {
         'test',
         [6, 0],
         [
-          new DateTz(2015, 0, 1, tz),
-          new DateTz(2015, 3, 3, tz),
-          new DateTz(2015, 3, 6, tz),
-          new DateTz(2015, 4, 1, tz),
-          new DateTz(2015, 11, 25, tz),
-          new DateTz(2015, 11, 16, tz)
+          new DateTz(2015, 1, 1, tz),
+          new DateTz(2015, 4, 3, tz),
+          new DateTz(2015, 4, 6, tz),
+          new DateTz(2015, 5, 1, tz),
+          new DateTz(2015, 12, 25, tz),
+          new DateTz(2015, 12, 16, tz)
         ],
         tz
       )
 
-      const decThirtyFirst = new DateTz(2014, 11, 31, tz)
-      const janFirst = new DateTz(2015, 0, 1, tz)
-      const janSecond = new DateTz(2015, 0, 2, tz)
+      const decThirtyFirst = new DateTz(2014, 12, 31, tz)
+      const janFirst = new DateTz(2015, 1, 1, tz)
+      const janSecond = new DateTz(2015, 1, 2, tz)
 
       it('should not require adjustment', () => {
         const date = adjustBusinessDay(

@@ -22,9 +22,9 @@ describe('endOfQuarter', () => {
   for (const tz of [tzUtc, tzLocal, tzChicago, tzTokyo]) {
     describe(tz.name, () => {
       it('should find the last moment of the quarter', () => {
-        const date = new DateTz(2000, 0, 1, tz)
+        const date = new DateTz(2000, 1, 1, tz)
         const actual = endOfQuarter(date)
-        const expected = new DateTz(2000, 2, 31, 23, 59, 59, 999, tz)
+        const expected = new DateTz(2000, 3, 31, 23, 59, 59, 999, tz)
         expect(actual.toISOString()).toBe(expected.toISOString())
       })
     })

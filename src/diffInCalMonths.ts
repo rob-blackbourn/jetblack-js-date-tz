@@ -16,7 +16,7 @@ export function diffInCalMonths(leftDate: DateTz, rightDate: DateTz): number {
   const lhs = startOfDay(leftDate).as(tzUtc)
   const rhs = startOfDay(rightDate).as(tzUtc)
   const yearDiff = lhs.year - rhs.year
-  const monthDiff = lhs.monthIndex - rhs.monthIndex
+  const monthDiff = lhs.month - rhs.month
   const dayDiff = lhs.day - rhs.day
 
   return yearDiff * 12 + monthDiff - (dayDiff < 0 ? 1 : 0)

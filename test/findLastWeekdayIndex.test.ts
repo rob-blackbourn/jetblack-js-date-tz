@@ -26,20 +26,20 @@ describe('indices', () => {
         it('should find weekday', () => {
           const actual = findWeekdayIndex(
             [
-              new DateTz(2000, 0, 1, tz),
-              new DateTz(2000, 0, 2, tz),
-              new DateTz(2000, 0, 3, tz),
-              new DateTz(2000, 0, 4, tz),
-              new DateTz(2000, 0, 5, tz),
-              new DateTz(2000, 0, 6, tz),
-              new DateTz(2000, 0, 7, tz),
-              new DateTz(2000, 0, 8, tz),
-              new DateTz(2000, 0, 9, tz),
-              new DateTz(2000, 0, 10, tz),
-              new DateTz(2000, 0, 11, tz),
-              new DateTz(2000, 0, 12, tz),
-              new DateTz(2000, 0, 13, tz),
-              new DateTz(2000, 0, 14, tz)
+              new DateTz(2000, 1, 1, tz),
+              new DateTz(2000, 1, 2, tz),
+              new DateTz(2000, 1, 3, tz),
+              new DateTz(2000, 1, 4, tz),
+              new DateTz(2000, 1, 5, tz),
+              new DateTz(2000, 1, 6, tz),
+              new DateTz(2000, 1, 7, tz),
+              new DateTz(2000, 1, 8, tz),
+              new DateTz(2000, 1, 9, tz),
+              new DateTz(2000, 1, 10, tz),
+              new DateTz(2000, 1, 11, tz),
+              new DateTz(2000, 1, 12, tz),
+              new DateTz(2000, 1, 13, tz),
+              new DateTz(2000, 1, 14, tz)
             ],
             1 //Monday
           )
@@ -49,20 +49,20 @@ describe('indices', () => {
         it('should find last weekday', () => {
           const actual = findLastWeekdayIndex(
             [
-              new DateTz(2000, 0, 1, tz),
-              new DateTz(2000, 0, 2, tz),
-              new DateTz(2000, 0, 3, tz),
-              new DateTz(2000, 0, 4, tz),
-              new DateTz(2000, 0, 5, tz),
-              new DateTz(2000, 0, 6, tz),
-              new DateTz(2000, 0, 7, tz),
-              new DateTz(2000, 0, 8, tz),
-              new DateTz(2000, 0, 9, tz),
-              new DateTz(2000, 0, 10, tz),
-              new DateTz(2000, 0, 11, tz),
-              new DateTz(2000, 0, 12, tz),
-              new DateTz(2000, 0, 13, tz),
-              new DateTz(2000, 0, 14, tz)
+              new DateTz(2000, 1, 1, tz),
+              new DateTz(2000, 1, 2, tz),
+              new DateTz(2000, 1, 3, tz),
+              new DateTz(2000, 1, 4, tz),
+              new DateTz(2000, 1, 5, tz),
+              new DateTz(2000, 1, 6, tz),
+              new DateTz(2000, 1, 7, tz),
+              new DateTz(2000, 1, 8, tz),
+              new DateTz(2000, 1, 9, tz),
+              new DateTz(2000, 1, 10, tz),
+              new DateTz(2000, 1, 11, tz),
+              new DateTz(2000, 1, 12, tz),
+              new DateTz(2000, 1, 13, tz),
+              new DateTz(2000, 1, 14, tz)
             ],
             1 //Monday
           )
@@ -71,7 +71,7 @@ describe('indices', () => {
 
         it('should not find weekday', () => {
           const actual = findWeekdayIndex(
-            [new DateTz(2000, 0, 1, tz), new DateTz(2000, 0, 2, tz)],
+            [new DateTz(2000, 1, 1, tz), new DateTz(2000, 0, 2, tz)],
             1 //Monday
           )
           expect(actual).toBe(-1)
@@ -80,10 +80,10 @@ describe('indices', () => {
         it('should not find last weekday', () => {
           const actual = findLastWeekdayIndex(
             [
-              new DateTz(2000, 0, 11, tz),
-              new DateTz(2000, 0, 12, tz),
-              new DateTz(2000, 0, 13, tz),
-              new DateTz(2000, 0, 14, tz)
+              new DateTz(2000, 1, 11, tz),
+              new DateTz(2000, 1, 12, tz),
+              new DateTz(2000, 1, 13, tz),
+              new DateTz(2000, 1, 14, tz)
             ],
             1 //Monday
           )

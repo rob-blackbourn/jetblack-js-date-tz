@@ -10,6 +10,6 @@ import { DateTz } from './DateTz'
  * @returns The start of the month.
  */
 export function startOfMonth(dateTz: DateTz): DateTz {
-  const { year, monthIndex } = dateTz.parts
-  return new DateTz(year, monthIndex, 1, dateTz.tz)
+  const { year, month } = dateTz.parts
+  return new DateTz(year, month, 1, dateTz.tz)
 }

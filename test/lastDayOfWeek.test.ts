@@ -22,23 +22,23 @@ describe('lastDayOfWeek', () => {
   for (const tz of [tzUtc, tzLocal, tzChicago, tzTokyo]) {
     describe(tz.name, () => {
       it('should find the last moment of the week from Sunday', () => {
-        const date = new DateTz(2022, 6, 3, tz)
+        const date = new DateTz(2022, 7, 3, tz)
         const actual = lastDayOfWeek(date)
-        const expected = new DateTz(2022, 6, 9, tz)
+        const expected = new DateTz(2022, 7, 9, tz)
         expect(actual.toISOString()).toBe(expected.toISOString())
       })
 
       it('should find the last moment of the week from Wednesday', () => {
-        const date = new DateTz(2022, 6, 6, tz)
+        const date = new DateTz(2022, 7, 6, tz)
         const actual = lastDayOfWeek(date)
-        const expected = new DateTz(2022, 6, 9, tz)
+        const expected = new DateTz(2022, 7, 9, tz)
         expect(actual.toISOString()).toBe(expected.toISOString())
       })
 
       it('should find the last moment of the week from Saturday', () => {
-        const date = new DateTz(2022, 6, 9, tz)
+        const date = new DateTz(2022, 7, 9, tz)
         const actual = lastDayOfWeek(date)
-        const expected = new DateTz(2022, 6, 9, tz)
+        const expected = new DateTz(2022, 7, 9, tz)
         expect(actual.toISOString()).toBe(expected.toISOString())
       })
     })

@@ -17,5 +17,5 @@ import { DateTz } from './DateTz'
  * @returns The quarter of the year.
  */
 export function quarterOfYear(dateTz: DateTz): number {
-  return Math.floor((dateTz.monthIndex + 3) / 3)
+  return Math.floor((dateTz.month + 2) / 3)
 }

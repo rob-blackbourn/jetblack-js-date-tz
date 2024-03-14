@@ -13,6 +13,6 @@ import { DateTz } from './DateTz'
  */
 export function startOfWeekYear(dateTz: DateTz): DateTz {
   const year = weekYear(dateTz)
-  const firstWeek = new DateTz(year, 0, 1, dateTz.tz)
+  const firstWeek = new DateTz(year, 1, 1, dateTz.tz)
   return startOfWeek(firstWeek)
 }

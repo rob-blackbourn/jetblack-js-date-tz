@@ -10,5 +10,5 @@ import { DateTz } from './DateTz'
  * @returns The start of the year.
  */
 export function startOfYear(dateTz: DateTz): DateTz {
-  return new DateTz(dateTz.year, 0, 1, dateTz.tz)
+  return new DateTz(dateTz.year, 1, 1, dateTz.tz)
 }

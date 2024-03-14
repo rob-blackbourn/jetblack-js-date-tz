@@ -22,16 +22,16 @@ describe('startOfQuarter', () => {
   for (const tz of [tzUtc, tzLocal, tzChicago, tzTokyo]) {
     describe(tz.name, () => {
       it('should return the start of the quarters', () => {
-        const date = new DateTz(2014, 8, 2, 2, 11, 55, 664, tz)
+        const date = new DateTz(2014, 9, 2, 2, 11, 55, 664, tz)
         const actual = startOfQuarter(date)
-        const expected = new DateTz(2014, 6, 1, tz)
+        const expected = new DateTz(2014, 7, 1, tz)
         expect(actual.toISOString()).toBe(expected.toISOString())
       })
 
       it('should not change date', () => {
-        const date = new DateTz(2014, 6, 1, tz)
+        const date = new DateTz(2014, 7, 1, tz)
         const actual = startOfQuarter(date)
-        const expected = new DateTz(2014, 6, 1, tz)
+        const expected = new DateTz(2014, 7, 1, tz)
         expect(actual.toISOString()).toBe(expected.toISOString())
       })
     })

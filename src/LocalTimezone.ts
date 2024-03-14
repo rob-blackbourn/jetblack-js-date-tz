@@ -8,28 +8,20 @@ class LocalTimezone extends Timezone {
 
   makeDate(
     year: number,
-    monthIndex: number,
+    month: number,
     day: number = 1,
     hours: number = 0,
     minutes: number = 0,
     seconds: number = 0,
     milliseconds: number = 0
   ): Date {
-    return new Date(
-      year,
-      monthIndex,
-      day,
-      hours,
-      minutes,
-      seconds,
-      milliseconds
-    )
+    return new Date(year, month - 1, day, hours, minutes, seconds, milliseconds)
   }
 
   dateParts(date: Date): DatePartResponse {
     return {
       year: date.getFullYear(),
-      monthIndex: date.getMonth(),
+      month: date.getMonth() + 1,
       weekday: date.getDay(),
       day: date.getDate(),
       hours: date.getHours(),
@@ -47,8 +39,8 @@ class LocalTimezone extends Timezone {
     return date.getFullYear()
   }
 
-  monthIndex(date: Date): number {
-    return date.getMonth()
+  month(date: Date): number {
+    return date.getMonth() + 1
   }
 
   weekday(date: Date): number {

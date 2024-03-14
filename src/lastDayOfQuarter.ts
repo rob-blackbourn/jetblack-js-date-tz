@@ -22,8 +22,8 @@ import { quarterOfYear } from './quarterOfYear'
  */
 export function lastDayOfQuarter(date: DateTz): DateTz {
   const quarter = quarterOfYear(date)
-  const monthIndex = 3 * (quarter - 1) + 2
+  const month = 3 * (quarter - 1) + 3
   const year = date.year
-  const day = daysInMonth(year, monthIndex)
-  return new DateTz(year, monthIndex, day, date.tz)
+  const day = daysInMonth(year, month)
+  return new DateTz(year, month, day, date.tz)
 }

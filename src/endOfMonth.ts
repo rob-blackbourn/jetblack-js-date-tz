@@ -24,12 +24,12 @@ import { daysInMonth } from './daysInMonth'
  * @returns A date which is the last day of the month for the given year and month.
  */
 export function endOfMonth(dateTz: DateTz): DateTz {
-  const { year, monthIndex } = dateTz.parts
+  const { year, month } = dateTz.parts
 
   return new DateTz(
     year,
-    monthIndex,
-    daysInMonth(year, monthIndex),
+    month,
+    daysInMonth(year, month),
     23,
     59,
     59,

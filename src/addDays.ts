@@ -35,12 +35,12 @@ import { DateTz } from './DateTz'
  * @returns A new date adjusted by the number of days.
  */
 export function addDays(dateTz: DateTz, numberOfDays: number): DateTz {
-  const { year, monthIndex, day, hours, minutes, seconds, milliseconds } =
+  const { year, month, day, hours, minutes, seconds, milliseconds } =
     dateTz.parts
 
   return new DateTz(
     year,
-    monthIndex,
+    month,
     day + numberOfDays,
     hours,
     minutes,

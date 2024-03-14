@@ -12,7 +12,7 @@ import { daysInMonth } from './daysInMonth'
 
 interface DateInfo {
   year: number
-  monthIndex: number
+  month: number
   day: number
   hour: number
   minute: number
@@ -68,7 +68,7 @@ function parseDecade(value: string): number {
   }
 }
 
-const parseMonthIndex = (value: string): number => +value - 1
+const parseMonth = (value: string): number => +value
 
 function parseDayPeriod(
   value: string,
@@ -125,22 +125,22 @@ const parseInfoMap: Record<string, ParseInfo> = {
   DDD: emptyWordParseInfo,
   DDDD: emptyWordParseInfo,
   m: {
-    field: 'monthIndex',
+    field: 'month',
     pattern: oneOrTwoDigitsPattern,
-    parse: parseMonthIndex
+    parse: parseMonth
   },
   mm: {
-    field: 'monthIndex',
+    field: 'month',
     pattern: twoDigitsPattern,
-    parse: parseMonthIndex
+    parse: parseMonth
   },
   mmm: {
-    field: 'monthIndex',
+    field: 'month',
     pattern: wordPattern,
     parse: (value, localeInfo) => parseMonthName(value, 'short', localeInfo)
   },
   mmmm: {
-    field: 'monthIndex',
+    field: 'month',
     pattern: wordPattern,
     parse: (value, localeInfo) => parseMonthName(value, 'long', localeInfo)
   },
@@ -184,10 +184,10 @@ const parseInfoMap: Record<string, ParseInfo> = {
 
 function isDateInfoValid(dateInfo: DateInfo): boolean {
   return (
-    dateInfo.monthIndex >= 0 &&
-    dateInfo.monthIndex < 12 &&
+    dateInfo.month >= 1 &&
+    dateInfo.month <= 12 &&
     dateInfo.day >= 1 &&
-    dateInfo.day <= daysInMonth(dateInfo.year, dateInfo.monthIndex) &&
+    dateInfo.day <= daysInMonth(dateInfo.year, dateInfo.month) &&
     dateInfo.hour >= 0 &&
     dateInfo.hour < 24 &&
     dateInfo.minute >= 0 &&
@@ -214,7 +214,7 @@ function applyPattern(
   // Default to the beginning of this year.
   const dateInfo: DateInfo = {
     year: new Date().getFullYear(),
-    monthIndex: 0,
+    month: 1,
     day: 1,
     hour: 0,
     minute: 0,
@@ -373,7 +373,7 @@ export function parseDate(
   if (dateInfo.timezoneOffset == null) {
     return new DateTz(
       dateInfo.year,
-      dateInfo.monthIndex,
+      dateInfo.month,
       dateInfo.day,
       dateInfo.hour,
       dateInfo.minute,
@@ -384,7 +384,7 @@ export function parseDate(
   } else {
     return new DateTz(
       dateInfo.year,
-      dateInfo.monthIndex,
+      dateInfo.month,
       dateInfo.day,
       dateInfo.hour,
       dateInfo.minute - dateInfo.timezoneOffset,

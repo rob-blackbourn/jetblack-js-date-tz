@@ -14,12 +14,12 @@ import { DateTz } from './DateTz'
  * @returns A new date adjusted by the number of quarters.
  */
 export function addQuarters(dateTz: DateTz, numberOfQuarters: number): DateTz {
-  const { year, monthIndex, day, hours, minutes, seconds, milliseconds } =
+  const { year, month, day, hours, minutes, seconds, milliseconds } =
     dateTz.parts
 
   return new DateTz(
     year,
-    monthIndex + numberOfQuarters * 3,
+    month + numberOfQuarters * 3,
     day,
     hours,
     minutes,

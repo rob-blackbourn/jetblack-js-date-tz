@@ -21,9 +21,9 @@ const MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
  * @category Calendars
  *
  * @param year The year.
- * @param monthIndex The month index where January is 0.
+ * @param month The month where January is 1.
  * @returns The number of days in the month for the given year.
  */
-export function daysInMonth(year: number, monthIndex: number): number {
-  return isLeapYear(year) && monthIndex === 1 ? 29 : MONTH_DAYS[monthIndex]
+export function daysInMonth(year: number, month: number): number {
+  return isLeapYear(year) && month === 2 ? 29 : MONTH_DAYS[month - 1]
 }

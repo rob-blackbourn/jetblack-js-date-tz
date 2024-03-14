@@ -25,5 +25,5 @@ import { Timezone } from './Timezone'
  * @returns A date which is the last day of the year.
  */
 export function lastDayOfYear(dateTz: DateTz): DateTz {
-  return new DateTz(dateTz.year, 11, 31, dateTz.tz)
+  return new DateTz(dateTz.year, 12, 31, dateTz.tz)
 }

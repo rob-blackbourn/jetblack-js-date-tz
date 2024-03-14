@@ -15,18 +15,18 @@ export class DateTz {
   constructor(value: number, tz: Timezone)
   constructor(dateString: string, tz: Timezone)
   constructor(dateObject: Date, tz: Timezone)
-  constructor(year: number, monthIndex: number, tz?: Timezone)
-  constructor(year: number, monthIndex: number, day: number, tz?: Timezone)
+  constructor(year: number, month: number, tz?: Timezone)
+  constructor(year: number, month: number, day: number, tz?: Timezone)
   constructor(
     year: number,
-    monthIndex: number,
+    month: number,
     day: number,
     hours: number,
     tz?: Timezone
   )
   constructor(
     year: number,
-    monthIndex: number,
+    month: number,
     day: number,
     hours: number,
     minutes: number,
@@ -34,7 +34,7 @@ export class DateTz {
   )
   constructor(
     year: number,
-    monthIndex: number,
+    month: number,
     day: number,
     hours: number,
     minutes: number,
@@ -43,7 +43,7 @@ export class DateTz {
   )
   constructor(
     year: number,
-    monthIndex: number,
+    month: number,
     day: number,
     hours: number,
     minutes: number,
@@ -106,11 +106,11 @@ export class DateTz {
       } else {
         throw new RangeError('Invalid args')
       }
-      const [year, monthIndex, day, hours, minutes, seconds, milliseconds] =
+      const [year, month, day, hours, minutes, seconds, milliseconds] =
         args as number[]
       this.date = this.tz.makeDate(
         year,
-        monthIndex,
+        month,
         day,
         hours,
         minutes,
@@ -123,8 +123,8 @@ export class DateTz {
   get year() {
     return this.tz.year(this.date)
   }
-  get monthIndex() {
-    return this.tz.monthIndex(this.date)
+  get month() {
+    return this.tz.month(this.date)
   }
   get day() {
     return this.tz.day(this.date)
@@ -170,7 +170,21 @@ export class DateTz {
     return this.date.getTime()
   }
 
+  toString() {
+    return `${this.date.toISOString()} ${this.tz.name}`
+  }
   valueOf() {
     return this.date.valueOf()
+  }
+
+  [Symbol.toPrimitive](hint: string): any {
+    if (hint === 'string') {
+      return this.toString()
+    } else if (hint === 'number') {
+      return this.valueOf()
+    } else {
+      // hint === 'default'
+      return this.toString()
+    }
   }
 }

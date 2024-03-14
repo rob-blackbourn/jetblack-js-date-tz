@@ -27,12 +27,12 @@ import { DateTz } from './DateTz'
  * @returns A new date adjusted by the number of years.
  */
 export function addYears(dateTz: DateTz, numberOfYears: number): DateTz {
-  const { year, monthIndex, day, hours, minutes, seconds, milliseconds } =
+  const { year, month, day, hours, minutes, seconds, milliseconds } =
     dateTz.parts
 
   return new DateTz(
     year + numberOfYears,
-    monthIndex,
+    month,
     day,
     hours,
     minutes,

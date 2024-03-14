@@ -12,6 +12,6 @@ import { quarterOfYear } from './quarterOfYear'
  */
 export function startOfQuarter(dateTz: DateTz): DateTz {
   const quarter = quarterOfYear(dateTz)
-  const monthIndex = 3 * (quarter - 1)
-  return new DateTz(dateTz.year, monthIndex, 1, dateTz.tz)
+  const month = 1 + 3 * (quarter - 1)
+  return new DateTz(dateTz.year, month, 1, dateTz.tz)
 }

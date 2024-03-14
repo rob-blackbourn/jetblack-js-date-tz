@@ -24,7 +24,7 @@ import { daysInMonth } from './daysInMonth'
  * @returns A date which is the last day of the month.
  */
 export function lastDayOfMonth(dateTz: DateTz): DateTz {
-  const { year, monthIndex } = dateTz.parts
+  const { year, month } = dateTz.parts
 
-  return new DateTz(year, monthIndex, daysInMonth(year, monthIndex), dateTz.tz)
+  return new DateTz(year, month, daysInMonth(year, month), dateTz.tz)
 }

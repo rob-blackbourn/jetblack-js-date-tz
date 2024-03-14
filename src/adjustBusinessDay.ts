@@ -72,7 +72,7 @@ export function adjustBusinessDay(
   } else if (convention == BusinessDayConvention.MODIFIED_FOLLOWING) {
     const adjustedDate = addBusinessDays(dateTz, 1, cal)
 
-    if (dateTz.monthIndex == dateTz.monthIndex) {
+    if (dateTz.month == dateTz.month) {
       return adjustedDate
     } else {
       return addBusinessDays(dateTz, -1, cal)
@@ -80,7 +80,7 @@ export function adjustBusinessDay(
   } else if (convention == BusinessDayConvention.MODIFIED_PRECEDING) {
     const adjustedDate = addBusinessDays(dateTz, -1, cal)
 
-    if (dateTz.monthIndex === dateTz.monthIndex) {
+    if (dateTz.month === dateTz.month) {
       return adjustedDate
     } else {
       return addBusinessDays(dateTz, 1, cal)

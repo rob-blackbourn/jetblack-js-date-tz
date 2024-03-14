@@ -22,7 +22,7 @@ describe('weekYear', () => {
   for (const tz of [tzUtc, tzLocal, tzChicago, tzTokyo]) {
     describe(tz.name, () => {
       it('returns the local week-numbering year of the given date', () => {
-        const date = new DateTz(2004, 11, 26, tz)
+        const date = new DateTz(2004, 12, 26, tz)
         const result = weekYear(date)
         expect(result).toBe(2005)
       })

@@ -22,8 +22,8 @@ describe('lastDayOfQuarter', () => {
   for (const tz of [tzUtc, tzLocal, tzChicago, tzTokyo]) {
     describe(tz.name, () => {
       it('should find the last day of the quarter', () => {
-        const actual = lastDayOfQuarter(new DateTz(2000, 0, 1, tz))
-        const expected = new DateTz(2000, 2, 31, tz)
+        const actual = lastDayOfQuarter(new DateTz(2000, 1, 1, tz))
+        const expected = new DateTz(2000, 3, 31, tz)
         expect(actual.toISOString()).toBe(expected.toISOString())
       })
     })

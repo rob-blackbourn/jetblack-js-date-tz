@@ -23,7 +23,7 @@ describe('dayOfYear', () => {
     describe(tz.name, () => {
       describe('tzUtc', () => {
         it('returns the local week of year of the given date', () => {
-          const date = new DateTz(2000, 4, 1, tz)
+          const date = new DateTz(2000, 5, 1, tz)
           const result = dayOfYear(date)
           expect(result).toBe(122)
         })

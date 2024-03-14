@@ -34,12 +34,12 @@ import { DateTz } from './DateTz'
  * @returns A new date adjusted by the number of months.
  */
 export function addMonths(dateTz: DateTz, numberOfMonths: number): DateTz {
-  const { year, monthIndex, day, hours, minutes, seconds, milliseconds } =
+  const { year, month, day, hours, minutes, seconds, milliseconds } =
     dateTz.parts
 
   return new DateTz(
     year,
-    monthIndex + numberOfMonths,
+    month + numberOfMonths,
     day,
     hours,
     minutes,

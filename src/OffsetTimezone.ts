@@ -3,9 +3,7 @@ import { tzUtc } from './UTCTimezone'
 import { MILLISECONDS_IN_MINUTE } from './constants'
 import { DatePartResponse } from './types'
 
-
 export abstract class OffsetTimezone extends Timezone {
-
   /**
    * Construct an offset timezone.
    *
@@ -34,7 +32,7 @@ export abstract class OffsetTimezone extends Timezone {
 
   makeDate(
     year: number,
-    monthIndex: number,
+    month: number,
     day?: number,
     hours?: number,
     minutes?: number,
@@ -43,7 +41,7 @@ export abstract class OffsetTimezone extends Timezone {
   ): Date {
     const date = tzUtc.makeDate(
       year,
-      monthIndex,
+      month,
       day,
       hours,
       minutes,
@@ -63,9 +61,9 @@ export abstract class OffsetTimezone extends Timezone {
     return tzUtc.year(local)
   }
 
-  monthIndex(date: Date): number {
+  month(date: Date): number {
     const local = this.toLocal(date)
-    return tzUtc.monthIndex(local)
+    return tzUtc.month(local)
   }
 
   weekday(date: Date): number {

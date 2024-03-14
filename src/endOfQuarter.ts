@@ -13,8 +13,8 @@ import { quarterOfYear } from './quarterOfYear'
  */
 export function endOfQuarter(dateTz: DateTz): DateTz {
   const quarter = quarterOfYear(dateTz)
-  const monthIndex = 3 * (quarter - 1) + 2
+  const month = 3 * (quarter - 1) + 3
   const year = dateTz.year
-  const day = daysInMonth(year, monthIndex)
-  return new DateTz(year, monthIndex, day, 23, 59, 59, 999, dateTz.tz)
+  const day = daysInMonth(year, month)
+  return new DateTz(year, month, day, 23, 59, 59, 999, dateTz.tz)
 }

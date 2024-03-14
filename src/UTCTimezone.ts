@@ -8,7 +8,7 @@ class UtcTimezone extends Timezone {
 
   makeDate(
     year: number,
-    monthIndex: number,
+    month: number,
     day: number = 1,
     hours: number = 0,
     minutes: number = 0,
@@ -16,14 +16,14 @@ class UtcTimezone extends Timezone {
     milliseconds: number = 0
   ): Date {
     return new Date(
-      Date.UTC(year, monthIndex, day, hours, minutes, seconds, milliseconds)
+      Date.UTC(year, month - 1, day, hours, minutes, seconds, milliseconds)
     )
   }
 
   dateParts(date: Date): DatePartResponse {
     return {
       year: date.getUTCFullYear(),
-      monthIndex: date.getUTCMonth(),
+      month: date.getUTCMonth() + 1,
       weekday: date.getUTCDay(),
       day: date.getUTCDate(),
       hours: date.getUTCHours(),
@@ -45,8 +45,8 @@ class UtcTimezone extends Timezone {
     return date.getUTCFullYear()
   }
 
-  monthIndex(date: Date): number {
-    return date.getUTCMonth()
+  month(date: Date): number {
+    return date.getUTCMonth() + 1
   }
 
   weekday(date: Date): number {

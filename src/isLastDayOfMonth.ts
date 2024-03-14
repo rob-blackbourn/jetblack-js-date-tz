@@ -13,5 +13,5 @@ import { daysInMonth } from './daysInMonth'
  * @returns True if the date is the last day of the month.
  */
 export function isLastDayOfMonth(date: DateTz): boolean {
-  return date.day === daysInMonth(date.year, date.monthIndex)
+  return date.day === daysInMonth(date.year, date.month)
 }

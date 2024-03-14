@@ -21,10 +21,10 @@ describe('lastDayOfYear', () => {
 
   for (const tz of [tzUtc, tzLocal, tzChicago, tzTokyo]) {
     describe(tz.name, () => {
-      it('should find the last moment of the year', () => {
-        const date = new DateTz(2000, 0, 1, tz)
+      it('should find the last day of the year', () => {
+        const date = new DateTz(2000, 1, 1, tz)
         const actual = lastDayOfYear(date)
-        const expected = new DateTz(2000, 11, 31, tz)
+        const expected = new DateTz(2000, 12, 31, tz)
         expect(actual.toISOString()).toBe(expected.toISOString())
       })
     })

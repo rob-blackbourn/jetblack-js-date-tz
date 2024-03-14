@@ -23,5 +23,5 @@ import { DateTz } from './DateTz'
  * @returns The last moment of the year.
  */
 export function endOfYear(dateTz: DateTz): DateTz {
-  return new DateTz(dateTz.year, 11, 31, 23, 59, 59, 999, dateTz.tz)
+  return new DateTz(dateTz.year, 12, 31, 23, 59, 59, 999, dateTz.tz)
 }

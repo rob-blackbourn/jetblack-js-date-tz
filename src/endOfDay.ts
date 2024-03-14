@@ -19,6 +19,6 @@ import { DateTz } from './DateTz'
  * @returns A new date which is the end of the day.
  */
 export function endOfDay(dateTz: DateTz): DateTz {
-  const { year, monthIndex, day } = dateTz.parts
-  return new DateTz(year, monthIndex, day, 23, 59, 59, 999, dateTz.tz)
+  const { year, month, day } = dateTz.parts
+  return new DateTz(year, month, day, 23, 59, 59, 999, dateTz.tz)
 }

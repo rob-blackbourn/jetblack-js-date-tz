@@ -58,7 +58,7 @@ describe('parseDate', () => {
 
   it('should parse ISO date', () => {
     const actual = parseDate('2000-01-01', 'yyyy-mm-dd')
-    const expected = new DateTz(2000, 0, 1, tzLocal)
+    const expected = new DateTz(2000, 1, 1, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
@@ -68,7 +68,7 @@ describe('parseDate', () => {
       '2000-06-01T12:35:59.999',
       'yyyy-mm-dd[T]HH:MM:SS.FFF'
     )
-    const expected = new DateTz(2000, 5, 1, 12, 35, 59, 999, tzLocal)
+    const expected = new DateTz(2000, 6, 1, 12, 35, 59, 999, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
@@ -78,7 +78,7 @@ describe('parseDate', () => {
       '2000-01-01T12:35:59.999Z',
       'yyyy-mm-dd[T]HH:MM:SS.FFFZ'
     )
-    const expected = new DateTz(2000, 0, 1, 12, 35, 59, 999, tzLocal)
+    const expected = new DateTz(2000, 1, 1, 12, 35, 59, 999, tzLocal)
     expect(actual).not.toBeNull()
     const actualISO = (actual as DateTz).toISOString()
     const expectedISO = expected.toISOString()
@@ -91,7 +91,7 @@ describe('parseDate', () => {
       'yyyy-mm-dd[T]HH:MM:SS.FFFZ'
     )
     const expected = addMinutes(
-      new DateTz(2000, 0, 1, 12, 35, 59, 999, tzUtc),
+      new DateTz(2000, 1, 1, 12, 35, 59, 999, tzUtc),
       -60
     ).as(tzLocal)
     expect(actual).not.toBeNull()
@@ -104,7 +104,7 @@ describe('parseDate', () => {
       'yyyy-mm-dd[T]HH:MM:SS.FFFZ'
     )
     const expected = addMinutes(
-      new DateTz(2000, 0, 1, 12, 35, 59, 999, tzUtc),
+      new DateTz(2000, 1, 1, 12, 35, 59, 999, tzUtc),
       60
     ).as(tzLocal)
     expect(actual).not.toBeNull()
@@ -113,42 +113,42 @@ describe('parseDate', () => {
 
   it('should parse leap year date', () => {
     const actual = parseDate('2020-02-29', 'yyyy-mm-dd')
-    const expected = new DateTz(2020, 1, 29, tzLocal)
+    const expected = new DateTz(2020, 2, 29, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
 
   it('should parse yyyy/mm/dd', () => {
     const actual = parseDate('2020/07/12', 'yyyy/mm/dd')
-    const expected = new DateTz(2020, 6, 12, tzLocal)
+    const expected = new DateTz(2020, 7, 12, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
 
   it('should parse yyyymmdd', () => {
     const actual = parseDate('20200229', 'yyyymmdd')
-    const expected = new DateTz(2020, 1, 29, tzLocal)
+    const expected = new DateTz(2020, 2, 29, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
 
   it('should parse mm/dd/yy', () => {
     const actual = parseDate('10/01/20', 'mm/dd/yy')
-    const expected = new DateTz(2020, 9, 1, tzLocal)
+    const expected = new DateTz(2020, 10, 1, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
 
   it('should parse dd/mm/yy', () => {
     const actual = parseDate('31/12/20', 'dd/mm/yy')
-    const expected = new DateTz(2020, 11, 31, tzLocal)
+    const expected = new DateTz(2020, 12, 31, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
 
   it('should parse d/m/yy', () => {
     const actual = parseDate('12/8/20', 'd/m/yy')
-    const expected = new DateTz(2020, 7, 12, tzLocal)
+    const expected = new DateTz(2020, 8, 12, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
@@ -158,7 +158,7 @@ describe('parseDate', () => {
     // use this century.
     const year = new Date().getFullYear() + 50
     const actual = parseDate(`1-Jan-${year % 100}`, 'd-mmm-yy')
-    const expected = new DateTz(year, 0, 1, tzLocal)
+    const expected = new DateTz(year, 1, 1, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
@@ -168,35 +168,35 @@ describe('parseDate', () => {
     // use the last century.
     const year = new Date().getFullYear() + 51 - 100
     const actual = parseDate(`1-Jul-${year % 100}`, 'd-mmm-yy')
-    const expected = new DateTz(year, 6, 1, tzLocal)
+    const expected = new DateTz(year, 7, 1, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
 
   it('should parse yyyy-mm-dd HH:MM:SS', () => {
     const actual = parseDate('2020-02-29 05:01:40', 'yyyy-mm-dd HH:MM:SS')
-    const expected = new DateTz(2020, 1, 29, 5, 1, 40, tzLocal)
+    const expected = new DateTz(2020, 2, 29, 5, 1, 40, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
 
   it('should parse "DD mmm", "en"', () => {
     const actual = parseDate('3rd Mar', 'DD mmm', tzLocal, 'en')
-    const expected = new DateTz(new Date().getFullYear(), 2, 3, tzLocal)
+    const expected = new DateTz(new Date().getFullYear(), 3, 3, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
 
   it('should parse "DD mmmm", "en"', () => {
     const actual = parseDate('22nd May', 'DD mmmm', tzLocal, 'en')
-    const expected = new DateTz(new Date().getFullYear(), 4, 22, tzLocal)
+    const expected = new DateTz(new Date().getFullYear(), 5, 22, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
 
   it('should parse "DD mmm", "fr"', () => {
     const actual = parseDate('11th Mars', 'DD mmm', tzLocal, 'fr')
-    const expected = new DateTz(new Date().getFullYear(), 2, 11, tzLocal)
+    const expected = new DateTz(new Date().getFullYear(), 3, 11, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
@@ -204,7 +204,7 @@ describe('parseDate', () => {
   it('should parse "DD mmmm", "fr"', () => {
     const actual = parseDate('3rd Janvier', 'DD mmmm', tzLocal, 'fr')
     const now = new Date()
-    const expected = new DateTz(tzLocal.year(now), 0, 3, tzLocal)
+    const expected = new DateTz(tzLocal.year(now), 1, 3, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
@@ -216,7 +216,7 @@ describe('parseDate', () => {
       tzLocal,
       'en'
     )
-    const expected = new DateTz(2020, 1, 29, 22, 1, 40, tzLocal)
+    const expected = new DateTz(2020, 2, 29, 22, 1, 40, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
@@ -228,7 +228,7 @@ describe('parseDate', () => {
       tzLocal,
       'en'
     )
-    const expected = new DateTz(2020, 6, 29, 22, 1, 40, tzLocal)
+    const expected = new DateTz(2020, 7, 29, 22, 1, 40, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
@@ -240,7 +240,7 @@ describe('parseDate', () => {
       tzLocal,
       'fr'
     )
-    const expected = new DateTz(2020, 11, 25, 22, 1, 40, tzLocal)
+    const expected = new DateTz(2020, 12, 25, 22, 1, 40, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
@@ -252,7 +252,7 @@ describe('parseDate', () => {
       tzLocal,
       'en-GB'
     )
-    const expected = new DateTz(2000, 0, 1, tzLocal)
+    const expected = new DateTz(2000, 1, 1, tzLocal)
     expect(actual).not.toBeNull()
     expect((actual as DateTz).toISOString()).toBe(expected.toISOString())
   })
@@ -271,7 +271,7 @@ describe('parseDate', () => {
       it('should parse for different timezones', () => {
         const actual = parseDate('1-Jul-00', 'd-mmm-yy', tz, 'en')
         expect(actual).toBeDefined()
-        const expected = new DateTz(2000, 6, 1, tz)
+        const expected = new DateTz(2000, 7, 1, tz)
         expect((actual as DateTz).toISOString()).toBe(
           (expected as DateTz).toISOString()
         )

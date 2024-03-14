@@ -1,13 +1,19 @@
-import { IANATimezone, dataToTimezoneOffset, tzLocal, tzUtc } from '../src'
+import {
+  DateTz,
+  IANATimezone,
+  dataToTimezoneOffset,
+  tzLocal,
+  tzUtc
+} from '../src'
 import brusselsTzData from '@jetblack/tzdata/dist/latest/Europe/Brussels.json'
 import chicagoTzData from '@jetblack/tzdata/dist/latest/America/Chicago.json'
 
 describe('timezone', () => {
   describe('tzLocal', () => {
     it('should make a date with a year and month', () => {
-      const jan1 = tzLocal.makeDate(2000, 0)
+      const jan1 = tzLocal.makeDate(2000, 1)
       expect(tzLocal.year(jan1)).toBe(2000)
-      expect(tzLocal.monthIndex(jan1)).toBe(0)
+      expect(tzLocal.month(jan1)).toBe(1)
       expect(tzLocal.day(jan1)).toBe(1)
       expect(tzLocal.hours(jan1)).toBe(0)
       expect(tzLocal.minutes(jan1)).toBe(0)
@@ -18,9 +24,9 @@ describe('timezone', () => {
 
   describe('tzUtc', () => {
     it('should make a date with a year and month', () => {
-      const jan1 = tzUtc.makeDate(2000, 0)
+      const jan1 = tzUtc.makeDate(2000, 1)
       expect(tzUtc.year(jan1)).toBe(2000)
-      expect(tzUtc.monthIndex(jan1)).toBe(0)
+      expect(tzUtc.month(jan1)).toBe(1)
       expect(tzUtc.day(jan1)).toBe(1)
       expect(tzUtc.hours(jan1)).toBe(0)
       expect(tzUtc.minutes(jan1)).toBe(0)
@@ -36,16 +42,16 @@ describe('timezone', () => {
     )
 
     it('should construct a date', () => {
-      const actual = tzBrussels.makeDate(2000, 0, 1)
+      const actual = tzBrussels.makeDate(2000, 1, 1)
       const expected = new Date('1999-12-31T23:00:00Z')
       expect(actual.toISOString()).toBe(expected.toISOString())
     })
 
     it('should destruct a date', () => {
-      const { year, monthIndex, day, hours, minutes, seconds, milliseconds } =
+      const { year, month, day, hours, minutes, seconds, milliseconds } =
         tzBrussels.dateParts(new Date('1999-12-31T23:00:00Z'))
       expect(year).toBe(2000)
-      expect(monthIndex).toBe(0)
+      expect(month).toBe(1)
       expect(day).toBe(1)
       expect(hours).toBe(0)
       expect(minutes).toBe(0)
@@ -54,7 +60,7 @@ describe('timezone', () => {
     })
 
     it('should get the offset', () => {
-      const date = tzBrussels.makeDate(2000, 0, 1)
+      const date = tzBrussels.makeDate(2000, 1, 1)
       const actual = tzBrussels.offset(date)
       const expected = 60
       expect(actual).toBe(expected)
@@ -72,8 +78,8 @@ describe('timezone', () => {
     })
 
     it('should get the month for an IANA timezone', () => {
-      const monthIndex = tzBrussels.monthIndex(new Date('1999-12-31T23:00:00Z'))
-      expect(monthIndex).toBe(0)
+      const month = tzBrussels.month(new Date('1999-12-31T23:00:00Z'))
+      expect(month).toBe(1)
     })
 
     it('should get the weekday for an IANA timezone', () => {
@@ -116,8 +122,8 @@ describe('timezone', () => {
     })
 
     it('should get the month for an UTC timezone', () => {
-      const monthIndex = tzUtc.monthIndex(new Date('2000-01-01T00:00:00Z'))
-      expect(monthIndex).toBe(0)
+      const month = tzUtc.month(new Date('2000-01-01T00:00:00Z'))
+      expect(month).toBe(1)
     })
 
     it('should get the weekday for an UTC timezone', () => {
@@ -158,7 +164,7 @@ describe('timezone', () => {
     )
 
     it('should display the time', () => {
-      const actual = tzChicago.toISOString(tzChicago.makeDate(2000, 0, 1))
+      const actual = new DateTz(2000, 1, 1, tzUtc).as(tzChicago).toISOString()
       const expected = '2000-01-01T00:00:00-06:00'
       expect(actual).toBe(expected)
     })

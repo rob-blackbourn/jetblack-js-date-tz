@@ -65,7 +65,7 @@ export abstract class Timezone {
    * Create a date from its component parts.
    *
    * @param year The year.
-   * @param monthIndex The month index where January is 0.
+   * @param month The month.
    * @param day The day of the month.
    * @param hours The hour of the day.
    * @param minutes The minute of the day.
@@ -75,7 +75,7 @@ export abstract class Timezone {
    */
   abstract makeDate(
     year: number,
-    monthIndex: number,
+    month: number,
     day?: number,
     hours?: number,
     minutes?: number,
@@ -92,7 +92,7 @@ export abstract class Timezone {
    * ```js
    * const {
    *   year,
-   *   monthIndex,
+   *   month,
    *   day,
    *   weekday,
    *   hours,
@@ -137,15 +137,15 @@ export abstract class Timezone {
    * ```js
    * import { tzUtc } from '@jetblack/date'
    *
-   * const date = tzUtc.makeDate(2000, 0, 1)
-   * console.log(tzUtc.monthIndex(date))
-   * // returns 0
+   * const date = tzUtc.makeDate(2000, 1, 1)
+   * console.log(tzUtc.month(date))
+   * // returns 1
    * ```
    *
    * @param date The date.
-   * @returns The month index of the date where 0 is January.
+   * @returns The month of the date where 1 is January.
    */
-  abstract monthIndex(date: Date): number
+  abstract month(date: Date): number
 
   /**
    * The day of the week for the given date where 0 is Sunday.
@@ -260,17 +260,9 @@ export abstract class Timezone {
    * @returns A new date using the date parts from this timezone, constructed with the supplied timezone.
    */
   as(date: Date, tz: Timezone): Date {
-    const { year, monthIndex, day, hours, minutes, seconds, milliseconds } =
+    const { year, month, day, hours, minutes, seconds, milliseconds } =
       this.dateParts(date)
-    return tz.makeDate(
-      year,
-      monthIndex,
-      day,
-      hours,
-      minutes,
-      seconds,
-      milliseconds
-    )
+    return tz.makeDate(year, month, day, hours, minutes, seconds, milliseconds)
   }
   /**
    * The ISO 8601 date string representation for a given date.
@@ -279,7 +271,7 @@ export abstract class Timezone {
    * @returns The ISO date string.
    */
   toISOString(date: Date) {
-    const { year, monthIndex, day, hours, minutes, seconds, milliseconds } =
+    const { year, month, day, hours, minutes, seconds, milliseconds } =
       this.dateParts(date)
     const offset = this.offset(date)
     const offsetSign = Math.sign(offset)
@@ -287,11 +279,7 @@ export abstract class Timezone {
     const offsetMinutes = offsetSign * (offset % 60)
 
     const datePart =
-      padNumber(year, 4) +
-      '-' +
-      padNumber(monthIndex + 1, 2) +
-      '-' +
-      padNumber(day, 2)
+      padNumber(year, 4) + '-' + padNumber(month, 2) + '-' + padNumber(day, 2)
     const timePart =
       padNumber(hours, 2) +
       ':' +
