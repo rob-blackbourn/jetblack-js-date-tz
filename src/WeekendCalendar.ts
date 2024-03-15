@@ -1,7 +1,5 @@
 import { Calendar } from './Calendar'
 import { DateTz } from './DateTz'
-import { tzLocal } from './LocalTimezone'
-import { Timezone } from './Timezone'
 
 /**
  * A calendar where specific days of the week are considered holidays.

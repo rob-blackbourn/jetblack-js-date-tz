@@ -1,3 +1,5 @@
+import { DateTz } from './DateTz'
+
 /**
  * Adds milliseconds to a date (or subtracts if negative).
  *
@@ -15,9 +17,6 @@
  * @param numberOfMilliseconds The number of milliseconds to add (or subtract if negative).
  * @returns A new date adjusted by the number of milliseconds.
  */
-
-import { DateTz } from './DateTz'
-
 export function addMilliseconds(
   dateTz: DateTz,
   numberOfMilliseconds: number
