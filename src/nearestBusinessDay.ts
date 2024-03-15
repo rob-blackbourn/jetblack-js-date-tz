@@ -11,7 +11,6 @@ import { DateTz } from './DateTz'
  * @param dateTz The start date.
  * @param preferForward If true a future date is preferred if both directions have the same cost. Defaults to true.
  * @param cal The calendar to use to identify business days. Defaults to the weekend calendar.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The nearest business date.
  */
 export function nearestBusinessDay(

@@ -6,10 +6,10 @@ import { DateTz } from './DateTz'
  * Creates a schedule of dates by month.
  *
  * ```js
- * import { dateScheduleByMonth, tzLocal } from '@jetblack/date'
+ * import { DateTz, dateScheduleByMonth, tzLocal } from '@jetblack/date-tz'
  *
  * console.log(
- *   dateScheduleByMonth(tzLocal.makeDate(2000, 0, 1), 0, 6).map(x =>
+ *   dateScheduleByMonth(new DateTz(2000, 1, 1), 0, 6).map(x =>
  *     tzLocal.toISOString(x)
  *   )
  * )
@@ -22,7 +22,6 @@ import { DateTz } from './DateTz'
  * @param start Start offset months.
  * @param stop The number of months.
  * @param step The months step count.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The schedule of dates separated by step months.
  */
 export function dateScheduleByMonth(

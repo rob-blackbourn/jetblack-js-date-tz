@@ -4,12 +4,12 @@ import { DateTz } from './DateTz'
  * Compares two dates descending.
  *
  * ```js
- * import { compareDateDesc } from '@jetblack/date'
+ * import { compareDateDesc, DateTz } from '@jetblack/date-tz'
  *
  * const a = [
- *   new Date('2000-07-01'),
- *   new Date('2000-05-01'),
- *   new Date('2000-06-01')
+ *   new DateTz(2000, 7, 1),
+ *   new DateTz(2000, 5, 1),
+ *   new DateTz(2000, 6, 1)
  * ]
  * console.log(a.sort(compareDateDesc))
  * // 0: Sat Jul 01 2000 01:00:00 GMT+0100 (British Summer Time)

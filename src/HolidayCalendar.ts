@@ -10,20 +10,20 @@ import { startOfDay } from './startOfDay'
  * The following constructs a holiday calendar for the US in 2020.
  *
  * ```js
- * import { HolidayCalendar } from '@jetblack/date'
+ * import { DateTz, HolidayCalendar } from '@jetblack/date-tz'
  *
  * const calUS = new HolidayCalendar(
  *   'US',
  *   [0, 6], // Saturday and Sunday are always holidays.
  *   [
- *     new Date('2020-01-01'), // Wed: New Year's Day
- *     new Date('2020-01-20'), // Mon: Martin Luther King Jr. Day
- *     new Date('2020-05-25'), // Mon: Memorial Day
- *     new Date('2020-07-03'), // Fri: Independence Day
- *     new Date('2020-09-07'), // Mon: Labor Day
- *     new Date('2020-11-11'), // Wed: Veterans Day
- *     new Date('2020-11-26'), // Thu: Thanksgiving
- *     new Date('2020-12-25')  // Fri: Christmas Day
+ *     new DateTz(2020,  1,  1), // Wed: New Year's Day
+ *     new DateTz(2020,  1, 20), // Mon: Martin Luther King Jr. Day
+ *     new DateTz(2020,  5, 25), // Mon: Memorial Day
+ *     new DateTz(2020,  7,  3), // Fri: Independence Day
+ *     new DateTz(2020,  9,  7), // Mon: Labor Day
+ *     new DateTz(2020, 11, 11), // Wed: Veterans Day
+ *     new DateTz(2020, 11, 26), // Thu: Thanksgiving
+ *     new DateTz(2020, 12, 25)  // Fri: Christmas Day
  *   ]
  * )
  * ```

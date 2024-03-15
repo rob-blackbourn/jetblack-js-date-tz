@@ -5,17 +5,16 @@ import { Duration } from './Duration'
  * Add a duration to a date.
  *
  * ```js
- * import { Duration, tzLocal } from '@jetblack/date'
+ * import { DateTz, Duration, tzLocal } from '@jetblack/date-tz'
  *
  * const duration = new Duration('P1DT3H')
- * const date = addDuration(tzLocal.makeDate(2000, 0, 1), duration, tzLocal)
+ * const date = addDuration(new DateTz(2000, 0, 1, tzLocal), duration)
  * ```
  *
  * @category Arithmetic
  *
  * @param dateTz The start date.
  * @param duration The duration to add.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns A new date adjusted by adding the duration.
  */
 export function addDuration(dateTz: DateTz, duration: Duration): DateTz {

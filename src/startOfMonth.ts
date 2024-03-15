@@ -6,7 +6,6 @@ import { DateTz } from './DateTz'
  * @category Anchors
  *
  * @param dateTz The date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The start of the month.
  */
 export function startOfMonth(dateTz: DateTz): DateTz {

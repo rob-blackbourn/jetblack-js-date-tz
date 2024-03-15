@@ -8,7 +8,6 @@ import { startOfDay } from './startOfDay'
  * @category Anchors
  *
  * @param dateTz A date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The start of the week.
  */
 export function startOfWeek(dateTz: DateTz): DateTz {

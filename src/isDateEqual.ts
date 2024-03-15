@@ -6,13 +6,13 @@ import { DateTz } from './DateTz'
  * @category Comparisons
  *
  * ```js
- * import { isDateEqual } '@jetblack/date'
+ * import { DateTz, isDateEqual } '@jetblack/date-tz'
  *
- * console.log(isDateEqual(new Date('2000-01-02'), new Date('2000-01-01')))
+ * console.log(isDateEqual(new DateTz('2000-01-02'), new DateTz('2000-01-01')))
  * // returns false
- * console.log(isDateEqual(new Date('2000-01-01'), new Date('2000-01-02')))
+ * console.log(isDateEqual(new DateTz('2000-01-01'), new DateTz('2000-01-02')))
  * // returns false
- * console.log(isDateEqual(new Date('2000-01-01'), new Date('2000-01-01')))
+ * console.log(isDateEqual(new DateTz('2000-01-01'), new DateTz('2000-01-01')))
  * // returns true
  * ```
  *

@@ -5,10 +5,10 @@ import { MILLISECONDS_IN_HOUR } from './constants'
  * Return the end of the hour for the given date.
  *
  * ```js
- * import { endOfHour, tzUtc } from '@jetblack/date'
+ * import { DateTz, endOfHour, tzUtc } from '@jetblack/date-tz'
  *
- * const d1 = tzUtc.makeDate(2000, 1, 1)
- * const d2 = endOfHour(d1, tzUtc)
+ * const d1 = new DateTz(2000, 1, 1, tzUtc)
+ * const d2 = endOfHour(d1)
  * console.log(d2.toISOString())
  * // 2000-02-01T00:59:59.999Z
  * ```

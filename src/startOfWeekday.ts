@@ -9,7 +9,6 @@ import { startOfDay } from './startOfDay'
  *
  * @param dateTz A date.
  * @param weekStartsOn The first day of the week where 0 is Sunday.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The start of the week.
  */
 export function startOfWeekday(dateTz: DateTz, weekStartsOn: number): DateTz {

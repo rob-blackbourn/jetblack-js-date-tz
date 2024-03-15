@@ -8,14 +8,14 @@ import { startOfDay } from './startOfDay'
  * Note: weeks start on Sunday and end on Saturday.
  *
  * ```js
- * import { lastDayOfWeek, tzUtc } from '@jetblack/date'
+ * import { DateTz, lastDayOfWeek, tzUtc } from '@jetblack/date-tz'
  *
- * const days2 = lastDayOfWeek(new Date('2022-03-25T00:00:00Z'), tzUtc)
+ * const days2 = lastDayOfWeek(new DateTz(2022, 3, 25, tzUtc))
  * console.log(days2.toISOString())
  * // 2022-03-26T00:00:00.000Z
  *
  * // Compare to endOfWeek
- * const days1 = endOfWeek(new Date('2022-03-25T00:00:00Z'), tzUtc)
+ * const days1 = endOfWeek(new DateTz(2022, 3, 25, tzUtc))
  * console.log(days1.toISOString())
  * // 2022-03-26T23:59:59.999Z
  * ```
@@ -23,7 +23,6 @@ import { startOfDay } from './startOfDay'
  * @category Anchors
  *
  * @param dateTz A date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns A date which is the last day of the week.
  */
 export function lastDayOfWeek(dateTz: DateTz): DateTz {

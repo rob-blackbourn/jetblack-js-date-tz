@@ -5,14 +5,14 @@ import { daysInMonth } from './daysInMonth'
  * Find the last day of the month.
  *
  * ```js
- * import { lastDayOfMonth, tzUtc } from '@jetblack/date'
+ * import { DateTz, lastDayOfMonth, tzUtc } from '@jetblack/date-tz'
  *
- * const days2 = lastDayOfMonth(new Date('2022-03-25T00:00:00Z'), tzUtc)
+ * const days2 = lastDayOfMonth(new DateTz(2022, 3, 25, tzLocal))
  * console.log(days2.toISOString())
  * // 2022-03-31T00:00:00.000Z
  *
  * // Compare with endOfMonth.
- * const days1 = endOfMonth(new Date('2022-03-25T00:00:00Z'), tzUtc)
+ * const days1 = endOfMonth(new DateTz(2022, 3, 25, tzUtc))
  * console.log(days1.toISOString())
  * // 2022-03-31T23:59:59.999Z
  * ```

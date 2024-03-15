@@ -6,10 +6,10 @@ import { quarterOfYear } from './quarterOfYear'
  * Find the last day of the quarter.
  *
  * ```js
- * import { lastDayOfQuarter, tzLocal } from '@jetblack/date'
+ * import { DateTz, lastDayOfQuarter, tzLocal } from '@jetblack/date-tz'
  *
  * console.log(
- *   tzLocal.toISOString(lastDayOfQuarter(tzLocal.makeDate(2000, 1, 2), tzLocal))
+  lastDayOfQuarter(new DateTz(2000, 1, 2, tzLocal)).toISOString()
  * )
  * // returns 2000-03-31T00:00:00-??:??
  * ```
@@ -17,7 +17,6 @@ import { quarterOfYear } from './quarterOfYear'
  * @category Anchors
  *
  * @param date The start date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns A date which is the last day of the quarter.
  */
 export function lastDayOfQuarter(date: DateTz): DateTz {

@@ -5,9 +5,9 @@ import { MILLISECONDS_IN_SECOND } from './constants'
  * Adds seconds to a date (or subtracts if negative).
  *
  * ```js
- * import { addSeconds } from '@jetblack/date'
+ * import { addSeconds, DateTz } from '@jetblack/date-tz'
  *
- * const d1 = addSeconds(new Date('2000-01-01T00:00:00.000'), 61)
+ * const d1 = addSeconds(new DateTz(2000, 1, 1), 61)
  * console.log(d1.toISOString())
  * // 2000-01-01T00:01:01.000Z
  * ```

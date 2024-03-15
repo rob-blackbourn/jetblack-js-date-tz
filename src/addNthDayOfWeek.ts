@@ -11,10 +11,10 @@ import { DateTz } from './DateTz'
  * Note that the JavaScript Date object treats 0 as Sunday and 6 as Saturday.
  *
  * ```js
- * import { addNthDayOfWeek } from '@jetblack/date'
+ * import { addNthDayOfWeek, DateTz } from '@jetblack/date-tz'
  *
  * // Saturday 1 January 1990
- * const d1 = new Date('2000-01-01T00:00:00Z')
+ * const d1 = new DateTz(2000, 1, 1)
  *
  * // The third Thursday of the month.
  * const d2 = addNthDayOfWeek(d1, 3, 4, false)
@@ -33,7 +33,6 @@ import { DateTz } from './DateTz'
  * @param nth The number of week days.
  * @param dow The day of the week where Sunday is 0.
  * @param strictlyDifferent When true the returned date must be different to the start date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The nth week day.
  */
 export function addNthDayOfWeek(

@@ -33,9 +33,9 @@ export enum BusinessDayConvention {
  * Adjusts a non-business day to the appropriate nearest business day.
  *
  * ```js
- * import { adjustBusinessDay, BusinessDayConvention } from '@jetblack/date'
+ * import { adjustBusinessDay, BusinessDayConvention, DateTz } from '@jetblack/date-tz'
  *
- * const d1 = new Date('2000-01-01')
+ * const d1 = new DateTz(2000, 1, 1)
  * console.log(d1)
  * // Sat Jan 01 2000 00:00:00 GMT+0000 (Greenwich Mean Time)
  *
@@ -52,7 +52,6 @@ export enum BusinessDayConvention {
  * @param convention The business day conventions. Defaults to BusinessDayConvention.FOLLOWING.
  * @param prefer_forward If true prefer the nearest business day in the future. Defaults to true.
  * @param cal An optional holiday calendar. Defaults to calWeekend.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The adjusted date.
  */
 export function adjustBusinessDay(

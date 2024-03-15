@@ -6,10 +6,10 @@ import { DateTz } from './DateTz'
  * Creates a schedule of dates by week.
  *
  * ```js
- * import { dateScheduleByWeek, tzLocal } from '@jetblack/date'
+ * import { DateTz, dateScheduleByWeek, tzLocal } from '@jetblack/date-tz'
  *
  * console.log(
- *   dateScheduleByWeek(tzLocal.makeDate(2000, 0, 1), 0, 4).map(x =>
+ *   dateScheduleByWeek(new DateTz(2000, 1, 1), 0, 4).map(x =>
  *     tzLocal.toISOString(x)
  *   )
  * )
@@ -22,7 +22,6 @@ import { DateTz } from './DateTz'
  * @param start Start offset weeks.
  * @param stop The number of weeks.
  * @param step The weeks step count.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The schedule of dates separated by step weeks.
  */
 export function dateScheduleByWeek(

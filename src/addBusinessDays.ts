@@ -9,19 +9,18 @@ import { DateTz } from './DateTz'
  * If a calendar is not specified the {@linkcode calWeekends} calendar is used.
  *
  * ```js
- * import { addBusinessDays } from '@jetblack/date'
+ * import { addBusinessDays, DateTz } from '@jetblack/date-tz'
  *
  * // Fri 7 Jan 2000
- * const date = addBusinessDays(new Date('2000-01-07T00:00:00Z'), 1)
- * console.log(date.getTime() === new Date('2000-01-10T00:00:00Z').getTime())
+ * const date = addBusinessDays(new DateTz(2000, 1, 7), 1)
+ * console.log(date.getTime() === new Date(2000, 1, 10).getTime())
  * ```
  *
  * @category Arithmetic
  *
- * @param date The start date.
+ * @param dateTz The start date.
  * @param count The number of days to add (or subtract if negative).
  * @param cal The calendar to use to identify dates which are holidays. Defaults to the {@linkcode calWeekends} calendar.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns A new date adjusted by business days.
  */
 export function addBusinessDays(

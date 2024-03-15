@@ -4,16 +4,15 @@ import { DateTz } from './DateTz'
  * Find the quarter for a given date.
  *
  * ```js
- * import { quarterOfYear } from '@jetblack/date'
+ * import { DateTz, quarterOfYear } from '@jetblack/date-tz'
  *
- * console.log(quarterOfYear(new Date('2000-04-01')))
+ * console.log(quarterOfYear(new DateTz(2000, 4, 1)))
  * // 2
  * ```
  *
  * @category Calendars
  *
  * @param dateTz The date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The quarter of the year.
  */
 export function quarterOfYear(dateTz: DateTz): number {

@@ -8,24 +8,23 @@ import { DateTz } from './DateTz'
  * Weeks start on 1 January of any given year.
  *
  * ```js
- * import { weekOfYear, tzUtc } from '@jetblack/date'
+ * import { DateTz, weekOfYear, tzUtc } from '@jetblack/date-tz'
  *
- * console.log(weekOfYear(new Date('1999-12-31T00:00:00Z'), tzUtc))
+ * console.log(weekOfYear(new DateTz(1999, 12, 31, tzUtc)))
  * // 53
- * console.log(weekOfYear(new Date('2000-01-01T00:00:00Z'), tzUtc))
+ * console.log(weekOfYear(new DateTz(2000, 1, 1, tzUtc)))
  * // 1
- * console.log(weekOfYear(new Date('2000-01-07T00:00:00Z'), tzUtc))
+ * console.log(weekOfYear(new DateTz(2000, 1, 7, tzUtc)))
  * // 1
- * console.log(weekOfYear(new Date('2000-01-08T00:00:00Z'), tzUtc))
+ * console.log(weekOfYear(new DateTz(2000, 1, 8, tzUtc)))
  * // 2
- * console.log(weekOfYear(new Date('2000-12-31T00:00:00Z'), tzUtc))
+ * console.log(weekOfYear(new DateTz(2000, 12, 31, tzUtc)))
  * // 53
  * ```
  *
  * @category Miscellaneous
  *
  * @param dateTz The date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The week of the year.
  */
 export function weekOfYear(dateTz: DateTz): number {

@@ -6,11 +6,11 @@ import { DateTz } from './DateTz'
  * Creates a range of dates by day.
  *
  * ```js
- * import { dateRangeByDay, tzUtc } from '@jetblack/date'
+ * import { dateRangeByDay, tzUtc, DateTz } from '@jetblack/date-tz'
  *
  * const dates = dateRangeByDay(
- *   new Date('2000-01-01T12:00:00Z'), // Sets to start of day.
- *   new Date('2000-01-10T12:00:00Z'),
+ *   new DateTz(2000, 1, 1, 12, 0, 0), // Sets to start of day.
+ *   new DateTz(2000, 1, 10, 12, 0, 0),
  *   1,
  *   tzUtc
  * )
@@ -32,7 +32,6 @@ import { DateTz } from './DateTz'
  * @param startDate The start date.
  * @param endDate The end date.
  * @param step The day step count.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The range of dates separated by step days from the start to the end date.
  */
 export function dateRangeByDay(

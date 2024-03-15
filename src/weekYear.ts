@@ -7,7 +7,6 @@ import { DateTz } from './DateTz'
  * @category Miscellaneous
  *
  * @param dateTz The date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The week year.
  */
 export function weekYear(dateTz: DateTz): number {

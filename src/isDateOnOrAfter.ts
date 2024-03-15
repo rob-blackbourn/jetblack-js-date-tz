@@ -4,13 +4,13 @@ import { DateTz } from './DateTz'
  * Checks if the left date is on or after the right date.
  *
  * ```js
- * import { isDateOnOrAfter } from '@jetblack/date'
+ * import { DateTz, isDateOnOrAfter } from '@jetblack/date-tz'
  *
- * console.log(isDateOnOrAfter(new Date('2000-01-02'), new Date('2000-01-01')))
+ * console.log(isDateOnOrAfter(new DateTz('2000-01-02'), new DateTz('2000-01-01')))
  * // returns true
- * console.log(isDateOnOrAfter(new Date('2000-01-01'), new Date('2000-01-02')))
+ * console.log(isDateOnOrAfter(new DateTz('2000-01-01'), new DateTz('2000-01-02')))
  * // returns false
- * console.log(isDateOnOrAfter(new Date('2000-01-01'), new Date('2000-01-01')))
+ * console.log(isDateOnOrAfter(new DateTz('2000-01-01'), new DateTz('2000-01-01')))
  * // returns true
  * ```
  *

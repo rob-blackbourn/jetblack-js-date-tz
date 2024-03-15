@@ -10,7 +10,6 @@ import { DateTz } from './DateTz'
  *
  * @param dateTz The start date.
  * @param numberOfQuarters The number of quarters to add (or subtract if negative)
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns A new date adjusted by the number of quarters.
  */
 export function addQuarters(dateTz: DateTz, numberOfQuarters: number): DateTz {

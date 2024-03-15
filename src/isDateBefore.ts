@@ -6,13 +6,13 @@ import { DateTz } from './DateTz'
  * @category Comparisons
  *
  * ```js
- * import { isDateBefore } from '@jetblack/date'
+ * import { DateTz, isDateBefore } from '@jetblack/date-tz'
  *
- * console.log(isDateBefore(new Date('2000-01-02'), new Date('2000-01-01')))
+ * console.log(isDateBefore(new DateTz('2000-01-02'), new DateTz('2000-01-01')))
  * // returns false
- * console.log(isDateBefore(new Date('2000-01-01'), new Date('2000-01-02')))
+ * console.log(isDateBefore(new DateTz('2000-01-01'), new DateTz('2000-01-02')))
  * // returns true
- * console.log(isDateBefore(new Date('2000-01-01'), new Date('2000-01-01')))
+ * console.log(isDateBefore(new DateTz('2000-01-01'), new DateTz('2000-01-01')))
  * // returns false
  * ```
  *

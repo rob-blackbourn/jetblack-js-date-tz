@@ -8,7 +8,6 @@ import { DateTz } from './DateTz'
  *
  * @param leftDate The left date.
  * @param rightDate The right date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The number of years between two dates.
  */
 export function diffInCalYears(leftDate: DateTz, rightDate: DateTz): number {

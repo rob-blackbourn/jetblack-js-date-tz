@@ -4,20 +4,20 @@ import { DateTz } from './DateTz'
  * Find the smallest date.
  *
  * ```ts
- * import { minDate } from '@jetblack/date'
+ * import { DateTz, minDate } from '@jetblack/date-tz'
  *
  * const d1 = minDate(
- *   new Date('2000-01-31T00:00:00Z'),
- *   new Date('2000-01-01T00:00:00Z'),
- *   new Date('2000-01-10T00:00:00Z')
+ *   new DateTz(2000, 1, 31),
+ *   new DateTz(2000, 1, 1),
+ *   new DateTz(2000, 1, 1)
  * )
  * console.log(d1.toISOString())
  * // 2000-01-01T00:00:00.000Z
  *
  * const dates = [
- *   new Date('2000-01-31T00:00:00Z'),
- *   new Date('2000-01-01T00:00:00Z'),
- *   new Date('2000-01-10T00:00:00Z')
+ *   new DateTz(2000, 1, 31),
+ *   new DateTz(2000, 1, 1),
+ *   new DateTz(2000, 1, 10)
  * ]
  * const d2 = minDate(...dates) // use the spread operator for an array
  * console.log(d2.toISOString())

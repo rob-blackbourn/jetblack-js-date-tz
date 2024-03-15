@@ -6,7 +6,7 @@ import { DateTz } from './DateTz'
  * Creates a schedule of dates by day.
  *
  * ```js
- * import { dateScheduleByDay, tzLocal } from '@jetblack/date'
+ * import { DateTz, dateScheduleByDay, tzLocal } from '@jetblack/date-tz'
  *
  * console.log(
  *   dateScheduleByDay(tzLocal.makeDate(2000, 0, 1), 0, 7).map(x =>
@@ -22,7 +22,6 @@ import { DateTz } from './DateTz'
  * @param start Start offset days.
  * @param stop The number of days.
  * @param step The days step count.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The schedule of dates separated by step days.
  */
 export function dateScheduleByDay(

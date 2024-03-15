@@ -9,7 +9,6 @@ import { daysInMonth } from './daysInMonth'
  * @category Calendars
  *
  * @param date The date to check.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns True if the date is the last day of the month.
  */
 export function isLastDayOfMonth(date: DateTz): boolean {

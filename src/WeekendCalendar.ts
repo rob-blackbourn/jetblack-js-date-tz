@@ -28,7 +28,6 @@ export class WeekendCalendar extends Calendar {
    * Check if the date is a weekend.
    *
    * @param date The date.
-   * @param tz An optional timezone. Defaults to the local timezone.
    * @returns True is the date is a weekend, otherwise false.
    */
   isWeekend(dateTz: DateTz): boolean {
@@ -40,7 +39,6 @@ export class WeekendCalendar extends Calendar {
    * Check if the date is a holiday.
    *
    * @param date The date to check.
-   * @param tz An optional timezone. Defaults to the local timezone.
    * @returns True if the date is a holiday, otherwise false.
    */
   isHoliday(dateTz: DateTz): boolean {

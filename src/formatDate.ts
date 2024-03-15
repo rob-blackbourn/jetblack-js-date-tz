@@ -1,7 +1,5 @@
 import { isoWeekOfYear } from './isoWeekOfYear'
-import { tzLocal } from './LocalTimezone'
 import { I18nSettings, getLocaleInfo } from './LocaleInfo'
-import { Timezone } from './Timezone'
 import { DateTz } from './DateTz'
 
 /** @internal  */
@@ -66,9 +64,9 @@ const flags: Record<string, (dateTz: DateTz, localeInfo: I18nSettings) => any> =
  * Format a date with a pattern.
  *
  * ```js
- * import { formatDate } from '@jetblack/date'
+ * import { DateTz, formatDate } from '@jetblack/date-tz'
  *
- * const d = new Date("2000-01-01")
+ * const d = new DateTz(2000, 1, 1)
  * const s = formatDate(d, "d-mmm-yy")
  * console.log(s)
  * > 1-Jan-00
@@ -112,7 +110,6 @@ const flags: Record<string, (dateTz: DateTz, localeInfo: I18nSettings) => any> =
  *
  * @param dateTz A date.
  * @param pattern The format pattern.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @param locale An optional locale. Defaults to the current browser locale.
  * @returns The formatted date string.
  */

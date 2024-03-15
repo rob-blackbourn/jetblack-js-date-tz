@@ -8,7 +8,6 @@ import { DateTz } from './DateTz'
  * @category Anchors
  *
  * @param dateTz The date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The date of the first week of the year.
  */
 export function startOfWeekYear(dateTz: DateTz): DateTz {

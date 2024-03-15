@@ -6,10 +6,10 @@ import { DateTz } from './DateTz'
  * Creates a schedule of dates by year.
  *
  * ```js
- * import { dateScheduleByYear, tzLocal } from '@jetblack/date'
+ * import { DateTz, dateScheduleByYear, tzLocal } from '@jetblack/date-tz'
  *
  * console.log(
- *   dateScheduleByYear(tzLocal.makeDate(2000, 0, 1), 0, 4).map(x =>
+ *   dateScheduleByYear(new DateTz(2000, 1, 1), 0, 4).map(x =>
  *     tzLocal.toISOString(x)
  *   )
  * )
@@ -22,7 +22,6 @@ import { DateTz } from './DateTz'
  * @param start Start offset years.
  * @param stop The number of years.
  * @param step The years step count.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The schedule of dates separated by step years.
  */
 export function dateScheduleByYear(

@@ -8,7 +8,6 @@ import { quarterOfYear } from './quarterOfYear'
  * @category Anchors
  *
  * @param dateTz A date
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The last moment of the quarter.
  */
 export function endOfQuarter(dateTz: DateTz): DateTz {

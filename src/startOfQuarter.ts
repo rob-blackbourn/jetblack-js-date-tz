@@ -7,7 +7,6 @@ import { quarterOfYear } from './quarterOfYear'
  * @category Anchors
  *
  * @param dateTz The date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The start of the quarter.
  */
 export function startOfQuarter(dateTz: DateTz): DateTz {

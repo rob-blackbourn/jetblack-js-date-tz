@@ -6,7 +6,7 @@ const MONTH_DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
  * Find the number of days in a month for a given year.
  *
  * ```js
- * import { daysInMonth } from '@jetblack/date'
+ * import { daysInMonth } from '@jetblack/date-tz'
  *
  * console.log(daysInMonth(2000, 0))
  * // 31

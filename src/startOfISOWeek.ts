@@ -11,7 +11,6 @@ import { Timezone } from './Timezone'
  * @category Anchors
  *
  * @param dateTz A date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The start of the week.
  */
 export function startOfISOWeek(dateTz: DateTz): DateTz {

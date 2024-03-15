@@ -5,11 +5,11 @@ import { quarterOfYear } from './quarterOfYear'
  * Compare two dates to see if they are in the same quarter of the year.
  *
  * ```js
- * import { areInSameQuarter } from '@jetblack/date'
+ * import { areInSameQuarter, DateTz } from '@jetblack/date-tz'
  *
- * console.log(areInSameQuarter(new Date('2000-01-01'), new Date('2000-02-01')))
+ * console.log(areInSameQuarter(new DateTz(2000, 1, 1), new DateTz(2000, 2, 1)))
  * // true
- * console.log(areInSameQuarter(new Date('2000-01-01'), new Date('2000-04-01')))
+ * console.log(areInSameQuarter(new DateTz(2000, 1, 1), new DateTz(2000, 4, 1)))
  * // false
  * ```
  *
@@ -17,7 +17,6 @@ import { quarterOfYear } from './quarterOfYear'
  *
  * @param first The first date.
  * @param second The second date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns True if the dates are in the same quarter, otherwise false.
  */
 export function areInSameQuarter(first: DateTz, second: DateTz): boolean {

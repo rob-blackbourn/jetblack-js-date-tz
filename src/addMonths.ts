@@ -7,21 +7,21 @@ import { DateTz } from './DateTz'
  * has less days at the end of the month, the surplus days are added.
  *
  * ```js
- * import { addMonths, tzUtc } from '@jetblack/date'
+ * import { addMonths, tzUtc, DateTz } from '@jetblack/date-tz'
  *
  * // The day of the month is kept constant if possible.
- * const d1 = new Date('2000-01-12')
- * console.log(d1.toString(), tzUtc)
+ * const d1 = new DateTz(2000, 1, 12, tzUtc)
+ * console.log(d1.toString())
  * // Wed Jan 12 2000 00:00:00 GMT+0000 (Greenwich Mean Time)
- * const d2 = addMonths(d1, 1, tzUtc)
+ * const d2 = addMonths(d1, 1)
  * console.log(d2.toString())
  * // Sat Feb 12 2000 00:00:00 GMT+0000 (Greenwich Mean Time)
  *
  * // If there are less days in the following month the surplus days are added.
- * const d3 = new Date('2000-01-31')
+ * const d3 = new DateTz(2000, 1, 31, tzUtc)
  * console.log(d3.toString())
  * // Mon Jan 31 2000 00:00:00 GMT+0000 (Greenwich Mean Time)
- * const d4 = addMonths(d3, 1, tzUtc)
+ * const d4 = addMonths(d3, 1)
  * console.log(d4.toString())
  * // Thu Mar 02 2000 00:00:00 GMT+0000 (Greenwich Mean Time)
  * ```
@@ -30,7 +30,6 @@ import { DateTz } from './DateTz'
  *
  * @param dateTz The start date.
  * @param numberOfMonths The number of months to add (or subtract if negative)
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns A new date adjusted by the number of months.
  */
 export function addMonths(dateTz: DateTz, numberOfMonths: number): DateTz {

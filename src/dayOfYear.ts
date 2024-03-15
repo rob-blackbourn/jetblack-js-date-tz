@@ -6,16 +6,15 @@ import { DateTz } from './DateTz'
  * Find the day of the year.
  *
  * ```js
- * import { dayOfYear, tzUtc } from '@jetblack/date'
+ * import { DateTz, dayOfYear, tzUtc } from '@jetblack/date-tz'
  *
- * const d = new Date('2020-07-12T00:00:00Z')
+ * const d = new DateTz(2020, 7, 12)
  * const day = dayOfYear(d, tzUtc)
  * console.log(day)
  * // 94
  * ```
  *
  * @param dateTz The date
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The day of the year
  */
 export function dayOfYear(dateTz: DateTz): number {

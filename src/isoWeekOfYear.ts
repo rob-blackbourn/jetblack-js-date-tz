@@ -7,7 +7,6 @@ import { startOfYear } from './startOfYear'
  * Find the ISO week of the year.
  *
  * @param dateTz The date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The ISO week.
  */
 export function isoWeekOfYear(dateTz: DateTz): number {

@@ -22,7 +22,6 @@ export type Periodicity =
  * @param start Start offset periods.
  * @param stop The number of periods.
  * @param step The period step count.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The schedule of dates.
  */
 export function dateSchedule(

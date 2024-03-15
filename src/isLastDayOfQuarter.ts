@@ -9,21 +9,20 @@ import { startOfDay } from './startOfDay'
  * Any time component is ignored.
  *
  * ```js
- * import { tzLocal, isLastDayOfQuarter } from '@jetblack/date'
+ * import { DateTz, tzLocal, isLastDayOfQuarter } from '@jetblack/date-tz'
  *
- * const jan30 = tzLocal.makeDate(2008, 0, 30)
- * console.log(isLastDayOfQuarter(jan30, tzLocal))
+ * const jan30 = new DateTz(2008, 1, 30, tzLocal)
+ * console.log(isLastDayOfQuarter(jan30))
  * // returns false
  *
- * const mar31 = tzLocal.makeDate(2008, 2, 31)
- * console.log(isLastDayOfQuarter(mar31, tzLocal))
+ * const mar31 = new DateTz(2008, 3, 31, tzLocal)
+ * console.log(isLastDayOfQuarter(mar31))
  * // returns true
  * ```
  *
  * @category Calendars
  *
  * @param date The date to check.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns True if the date is the last day of the quarter.
  */
 export function isLastDayOfQuarter(date: DateTz): boolean {

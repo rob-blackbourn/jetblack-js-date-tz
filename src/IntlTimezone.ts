@@ -1,8 +1,4 @@
 import { OffsetTimezone } from './OffsetTimezone'
-import { Timezone } from './Timezone'
-import { tzUtc } from './UTCTimezone'
-import { MILLISECONDS_IN_MINUTE } from './constants'
-import { DatePartResponse } from './types'
 
 const localeUS = 'en-US'
 const datePatternUS = /(\d+).(\d+).(\d+),?\s+(\d+).(\d+)(.(\d+))?/
@@ -15,7 +11,10 @@ const utcDateTimeFormatOptions: Intl.DateTimeFormatOptions = {
   hour: 'numeric',
   minute: 'numeric'
 }
-const formatDateUTC = new Intl.DateTimeFormat(localeUS, utcDateTimeFormatOptions)
+const formatDateUTC = new Intl.DateTimeFormat(
+  localeUS,
+  utcDateTimeFormatOptions
+)
 
 interface DateParts {
   year: number
@@ -52,7 +51,7 @@ function diffMinutes(d1: DateParts, d2: DateParts): number {
  * An implementation for time zones using Intl.DateTimeFormat.
  *
  * ```js
- * import { IntlTimezone } from '@jetblack/date'
+ * import { IntlTimezone } from '@jetblack/date-tz'
  *
  * const tz = new IntlTimezone('Europe/Brussels')
  * const newYearsDay = tz.makeDate(2000, 0, 1)
@@ -76,14 +75,14 @@ export class IntlTimezone extends OffsetTimezone {
 
     this.formatDateTz = new Intl.DateTimeFormat(localeUS, {
       ...utcDateTimeFormatOptions,
-      timeZone: name,
+      timeZone: name
     })
   }
 
   offset(date: Date): number {
     return diffMinutes(
       parseDate(this.formatDateTz.format(date)),
-      parseDate(formatDateUTC.format(date)),
+      parseDate(formatDateUTC.format(date))
     )
   }
 

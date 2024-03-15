@@ -10,7 +10,6 @@ import { DateTz } from './DateTz'
  * @param startDate The start date.
  * @param endDate The end date.
  * @param step The year step count.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The range of dates separated by step years from the start to the end date.
  */
 export function dateRangeByYear(

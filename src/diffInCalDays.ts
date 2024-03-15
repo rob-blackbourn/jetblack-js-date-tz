@@ -31,7 +31,6 @@ import { DateTz } from './DateTz'
  *
  * @param leftDate The left date.
  * @param rightDate The right date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns The number of days between the start of day on the start and end dates.
  */
 export function diffInCalDays(leftDate: DateTz, rightDate: DateTz) {

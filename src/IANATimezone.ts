@@ -1,8 +1,4 @@
-import { MILLISECONDS_IN_MINUTE } from './constants'
 import { OffsetTimezone } from './OffsetTimezone'
-import { Timezone } from './Timezone'
-import { DatePartResponse } from './types'
-import { tzUtc } from './UTCTimezone'
 import { getClosestValues } from './utils'
 
 /**
@@ -35,7 +31,7 @@ export interface TimezoneOffset {
  * This example gets the data from the internet.
  *
  * ```js
- * import { IANATimezone, minDataToTimezoneOffset } from '@jetblack/date'
+ * import { IANATimezone, minDataToTimezoneOffset } from '@jetblack/date-tz'
  *
  * const timezoneName = 'Europe/Brussels'
  * fetch(`https://cdn.jsdelivr.net/npm/@jetblack/tzdata/dist/latest/${timezoneName}.min.json`)
