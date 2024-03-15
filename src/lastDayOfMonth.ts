@@ -20,7 +20,6 @@ import { daysInMonth } from './daysInMonth'
  * @category Anchors
  *
  * @param dateTz The start date.
- * @param tz An optional timezone. Defaults to the local timezone.
  * @returns A date which is the last day of the month.
  */
 export function lastDayOfMonth(dateTz: DateTz): DateTz {
