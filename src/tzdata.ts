@@ -78,7 +78,7 @@ export function timezoneFromJSON(name: string, tzdata: object[]): IANATimezone {
  * Fetch a timezone.
  *
  * ```ts
- * import { fetchTimezone } from '@jetblack/date'
+ * import { fetchTimezone } from '@jetblack/date-tz'
  *
  * const tzChicago = await fetchTimezone('America/Chicago')
  * console.log(tzChicago.makeDate(2022, 12, 25).toISOString())

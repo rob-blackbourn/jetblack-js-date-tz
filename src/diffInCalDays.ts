@@ -7,21 +7,19 @@ import { DateTz } from './DateTz'
  * Find the number of whole days between two dates, discarding any time component.
  *
  * ```js
- * import { diffInCalDays, tzUtc } from '@jetblack/date'
+ * import { DateTz, diffInCalDays, tzUtc } from '@jetblack/date-tz'
  *
  * const days1 = diffInCalDays(
- *   new Date('2022-03-25T00:00:00Z'),
- *   new Date('2022-01-25T00:00:00Z'),
- *   tzUtc
+ *   new DateTz(2022, 3, 25, tzUtc),
+ *   new DateTz(2022, 1, 25, tzUtc)
  * )
  * console.log(days1)
  * // 59
  *
  * // The time part is discarded.
  * const days2 = diffInCalDays(
- *   new Date('2022-03-25T12:00:00Z'),
- *   new Date('2022-01-25T00:00:00Z'),
- *   tzUtc
+ *   new DateTz(2022, 3, 25),
+ *   new DateTz(2022, 1, 25)
  * )
  * console.log(days2)
  * // 59

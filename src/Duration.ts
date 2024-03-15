@@ -109,10 +109,10 @@ function argsToValues(
  * Here we add a day.
  *
  *  ```js
- * import { Duration } from '@jetblack/date'
+ * import { DateTz, Duration } from '@jetblack/date-tz'
  *
  * const duration = new Duration('P1D')
- * const d1 = addDuration(new Date('2000-01-01T00:00:00Z'), duration)
+ * const d1 = addDuration(new DateTz(2000, 1, 1), duration)
  * console.log(d1)
  * // Sun Jan 02 2000 00:00:00 GMT+0000 (Greenwich Mean Time)
  * ```
@@ -120,10 +120,10 @@ function argsToValues(
  * Note that durations may be negative.
  *
  * ```js
- * import { Duration } from '@jetblack/date'
+ * import { DateTz, Duration } from '@jetblack/date-tz'
  *
  * const duration = new Duration('-P1D')
- * const d1 = addDuration(new Date('2000-01-01T00:00:00Z'), duration)
+ * const d1 = addDuration(new DateTz(2000, 1, 1), duration)
  * console.log(d1)
  * // Fri Dec 31 1999 00:00:00 GMT+0000 (Greenwich Mean Time)
  * ```

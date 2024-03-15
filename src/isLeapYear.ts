@@ -2,7 +2,7 @@
  * Check if the year is a leap year.
  *
  * ```js
- * import { isLeapYear } from '@jetblack/date'
+ * import { isLeapYear } from '@jetblack/date-tz'
  *
  * // 2000 was a century leap year.
  * console.log(isLeapYear(2000) === true)
