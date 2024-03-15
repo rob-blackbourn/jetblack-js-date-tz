@@ -1,5 +1,7 @@
 import { DatePartResponse } from './types'
-import { padNumber } from './utils'
+
+const padNumber = (value: number, maxLength: number): string =>
+  String(value).padStart(maxLength, '0')
 
 /**
  * The base class for timezones.
@@ -13,7 +15,7 @@ import { padNumber } from './utils'
  * There is a tutorial [here](../../pages/guide/timezones.html).
  *
  * The timezone object provides accessors for the common properties of a date
- * such as {@link Timezone.year}. Here is an example of using the year.
+ * such as {@link Timezone['year']}. Here is an example of using the year.
  *
  * ```js
  * import { tzLocal, tzUtc } from '@jetblack/date-tz'
