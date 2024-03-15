@@ -1,11 +1,9 @@
-The design choices are centered around efficiency and compatibility with the
-standard JavaScript Date object, and browser bundling.
+The design choices are centered around ease of use, rather than
+compatibility, and browser bundling.
 
 ### Months
 
-The Date object treats `0` as the first month of the year, and this library
-accepts that convention. Because this can feel a little odd, references to months
-usually specify `monthIndex` as a reminder.
+The DateTz object treats `1` as the first month of the year, rather than `0` for the built in Date class.
 
 ### Day of Week
 

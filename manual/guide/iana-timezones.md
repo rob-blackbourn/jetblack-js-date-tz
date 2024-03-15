@@ -13,7 +13,7 @@ npm install --save @jetblack/tzdata
 Depending on the environment plugins you may be able to import the JSON directly.
 
 ```js
-import { IANATimezone, dataToTimezoneOffset } from '@jetblack/date'
+import { DateTz, IANATimezone, dataToTimezoneOffset } from '@jetblack/date-tz'
 import BRUSSELS_TZDATA from '@jetblack/tzdata/dist/latest/Europe/Brussels.json'
 
 const tzBrussels = new IANATimezone(
@@ -22,7 +22,7 @@ const tzBrussels = new IANATimezone(
   BRUSSELS_TZDATA.map(dataToTimezoneOffset)
 )
 
-const newYearsDay = tzBrussels.makeDate(2000, 0, 1).toISOString()
+const newYearsDay = new DateTz(2000, 0, 1, tzBrussels).toISOString()
 // returns "2000-01-01T01:00:00Z"
 ```
 
@@ -108,7 +108,7 @@ fetch(`https://cdn.jsdelivr.net/npm/@jetblack/tzdata/dist/latest/${timezoneName}
   .then(data => {
     const zoneData = data.map(minDataToTimezoneOffset)
     const tzBrussels = new IANATimezone(timeZoneName, zoneData)
-    const newYearsDay = tzBrussels.makeDate(2000, 0, 1)
+    const newYearsDay = new DateTz(2000, 0, 1, tzBrussels)
     // returns "2000-01-01T01:00:00Z"
   })
   .catch(error => console.error(error))
@@ -121,7 +121,7 @@ There is a utility function [[`fetchTimezone`]] which wraps this up.
 import { fetchTimezone } from '@jetblack/date'
 
 const tzChicago = await fetchTimezone('America/Chicago')
-console.log(tzChicago.makeDate(2022, 12, 25).toISOString())
+console.log(new Date(2022, 12, 25, tzChicago).toISOString())
 // 2023-01-25T06:00:00.000Z
 ```
 

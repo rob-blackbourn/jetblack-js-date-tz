@@ -20,18 +20,18 @@ weekends it takes a list of dates that are considered holidays.
 Here is a simple calendar.
 
 ```js
-import { HolidayCalendar, tzLocal } from '@jetblack/date'
+import { DateTz, HolidayCalendar, tzLocal } from '@jetblack/date-tz'
 
 const cal = new HolidayCalendar(
   'cal',
   [6, 0], // Saturday and Sunday
   [
-    tzLocal.makeDate(2015, 0, 1),   // New Years Day
-    tzLocal.makeDate(2015, 3, 3),   // Good Friday
-    tzLocal.makeDate(2015, 3, 6),   // Easter Monday
-    tzLocal.makeDate(2015, 4, 1),   // May Day
-    tzLocal.makeDate(2015, 11, 25), // Christmas day
-    tzLocal.makeDate(2015, 11, 26)  // Boxing day
+    new DateTz(2015, 0, 1, tzLocal),   // New Years Day
+    new DateTz(2015, 3, 3, tzLocal),   // Good Friday
+    new DateTz(2015, 3, 6, tzLocal),   // Easter Monday
+    new DateTz(2015, 4, 1, tzLocal),   // May Day
+    new DateTz(2015, 11, 25, tzLocal), // Christmas day
+    new DateTz(2015, 11, 26, tzLocal)  // Boxing day
   ],
   tzLocal
 )
@@ -48,7 +48,7 @@ year. Extending classes implement the `fetchHolidays(year: number, tz: Timezone)
 method, which returns a set of holidays for the year.
 
 ```ts
-import { WeekendCalendar, Timezone, startOfDay, tzLocal } from "@jetblack/date"; 
+import { DateTz, WeekendCalendar, Timezone, startOfDay, tzLocal } from "@jetblack/date-tz"; 
 
 export abstract class YearlyCalendar extends WeekendCalendar {
 
@@ -58,18 +58,18 @@ export abstract class YearlyCalendar extends WeekendCalendar {
         super(name, weekends)
     }
 
-    public override isHoliday(date: Date, tz: Timezone = tzLocal): boolean {
-        if (this.isWeekend(date, tz)) {
+    public override isHoliday(date: DateTz): boolean {
+        if (this.isWeekend(date)) {
             return true
         }
 
-        const year = tz.year(date)
+        const year = date.year
         if (!this.holidays.has(year)) {
-            this.holidays.set(year, this.fetchHolidays(year, tz))
+            this.holidays.set(year, this.fetchHolidays(year, date.tz))
         }
 
         const yearHolidays = this.holidays.get(year)
-        return yearHolidays.has(startOfDay(date, tz).getTime())
+        return yearHolidays.has(startOfDay(date).getTime())
     }
 
     protected abstract fetchHolidays(year: number, tz: Timezone): Set<number> 
@@ -101,7 +101,7 @@ export class Target extends YearlyCalendar {
         const holidays: Set<number> = new Set()
 
         // New Year's Day, January 1st.
-        holidays.add(tz.makeDate(year, 0, 1).getTime())
+        holidays.add(new DateTz(year, 1, 1, tz).getTime())
 
         if (year >= 2000) {
             const easterSunday = easter(year, tz)
@@ -113,20 +113,20 @@ export class Target extends YearlyCalendar {
 
         if (year >= 2000) {
             // Labour Day, May 1st (since 2000).
-            holidays.add(tz.makeDate(year, 4, 1).getTime())
+            holidays.add(new DateTz(year, 5, 1, tz).getTime())
         }
 
         // Christmas Day, December 25th.
-        holidays.add(tz.makeDate(year, 11, 25).getTime())
+        holidays.add(new DateTz(year, 12, 25, tz).getTime())
 
         if (year >= 2000) {
             // Day of Goodwill, December 26th (since 2000).
-            holidays.add(tz.makeDate(year, 11, 26).getTime())
+            holidays.add(new DateTz(year, 12, 26, tz).getTime())
         }
 
         if (year === 1998 || year === 1999 || year === 2001) {
             // December 31st (1998, 1999, and 2001).
-            holidays.add(tz.makeDate(year, 11, 31).getTime())
+            holidays.add(new DateTz(year, 12, 31, tz).getTime())
         }
 
         return holidays

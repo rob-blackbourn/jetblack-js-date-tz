@@ -1,9 +1,9 @@
 ## Installation
 
-The package can be installed from [npmjs](https://www.npmjs.com/package/@jetblack/date).
+The package can be installed from [npmjs](https://www.npmjs.com/package/@jetblack/date-tz).
 
 ```bash
-npm install --save @jetblack/date
+npm install --save @jetblack/date-tz
 ```
 
 ## Convenience Methods
@@ -12,7 +12,10 @@ The library provides the usual convenience methods (e.g. [[addDays]], [[startOfD
 but with the addition of a timezone where necessary.
 
 ```js
-import { startOfToday, tzLocal, tzUtc, fetchTimezone, IntlTimezone } from '@jetblack/date'
+import { DateTz, startOfToday, tzLocal, tzUtc, fetchTimezone, IntlTimezone } from '@jetblack/date-tz'
+
+// Make a time in the UTC timezone
+const unixEpoch = new DateTz(1970, 1, 1, tzUtc)
 
 // Get the start of today relative to the local timezone.
 const todayLocal = startOfToday()

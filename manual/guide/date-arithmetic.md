@@ -11,31 +11,31 @@ Daylight savings time (DST) presents an issue for date arithmetic.
 The following example demonstrates how daylight savings time is handled.
 
 ```js
-import { tzUtc, fetchTimezone, addDays, addHours } from '@jetblack/date'
+import { DateTz, tzUtc, fetchTimezone, addDays, addHours } from '@jetblack/date-tz'
 
 // In London on Sunday March 26 2000 the clocks went forward 1 hour at 1am.
 
 // At midnight the clocks have yet to be put forward.
 const tzLondon = await fetchTimezone('Europe/London')
-const mar26 = tzLondon.makeDate(2000, 2, 26)
-console.log(tzLondon.toISOString(mar26))
+const mar26 = new DateTz(2000, 2, 26, tzLondon)
+console.log(mar26.toISOString())
 // 2000-03-26T00:00:00+00:00
-console.log(tzUtc.toISOString(mar26))
+console.log(mar26.toISOString())
 // 2000-03-26T00:00:00.000Z
 
 // Adding one hour from midnight takes the time to 2am as the clocks go forward
 // one hour at 1am.
 const mar26plus1h = addHours(mar26, 1)
-console.log(tzLondon.toISOString(mar26plus1h))
+console.log(mar26plus1h.toISOString())
 // 2000-03-26T02:00:00+01:00
-console.log(tzUtc.toISOString(mar26plus1h))
+console.log(mar26plus1h.as(tzUtc).toISOString())
 // 2000-03-26T01:00:00.000Z
 
 // Add a day in the context of the London time zone.
-const mar27 = addDays(mar26, 1, tzLondon)
-console.log(tzLondon.toISOString(mar27))
+const mar27 = addDays(mar26, 1)
+console.log(mar27.toISOString())
 // 2000-03-27T00:00:00+01:00
-console.log(tzUtc.toISOString(mar27))
+console.log(mar27.as(tzUtc).toISOString())
 // 2000-03-26T23:00:00.000Z
 
 // There were only 23 hours in the day of the 26th.

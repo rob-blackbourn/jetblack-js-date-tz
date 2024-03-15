@@ -13,9 +13,9 @@ The local timezone is provided by the {@linkcode tzLocal} constant. The followin
 create a new date for the first of January 2000 in the timezone of the browser.
 
 ```js
-import { tzLocal } from '@jetblack/date'
+import { DateTz, tzLocal } from '@jetblack/date-tz'
 
-let jan1 = tzLocal.makeDate(2000, 0, 1)
+let jan1 = new DateTz(2000, 1, 1, tzLocal)
 
 // Equivalent to
 jan1 = new Date(2000, 0, 1)
@@ -27,9 +27,9 @@ The UTC timezone is provided by the `tzUtc` constant. The following will
 create a new date for the first of January 2000 in the UTC timezone.
 
 ```js
-import { tzUtc } from '@jetblack/date'
+import { DateTz, tzUtc } from '@jetblack/date-tz'
 
-let jan1 = tzUtc.makeDate(2000, 0, 1)
+let jan1 = new DateTz(2000, 1, 1, tzUtc)
 
 // Equivalent to
 jan1 = new Date(Date.UTC(2000, 0, 1))
@@ -46,11 +46,11 @@ The following creates a new date for the first of January 2000 in the
 Europe/Brussels timezone.
 
 ```js
-import { IntlTimezone } from '@jetblack/date'
+import { DateTz, IntlTimezone } from '@jetblack/date-tz'
 
 const tzBrussels = new IntlTimezone('Europe/Brussels')
 
-let jan1 = tzBrussels.makeDate(2000, 0, 1)
+let jan1 = new DateTz(2000, 0, 1, tzBrussels)
 
 // Equivalent to adding the offset to UTC of one hour on 2000-01-01.
 jan1 = new Date(Date.UTC(2000, 0, 1) + 1 * 60 * 60 * 1000)
@@ -64,7 +64,7 @@ The following creates a new date for the first of January 2000 in the
 Europe/Brussels timezone.
 
 ```js
-import { IANATimezone, dataToTimezoneOffset } from '@jetblack/date'
+import { DateTz, IANATimezone, dataToTimezoneOffset } from '@jetblack/date-tz'
 import tzdataBrussels from '@jetblack/tzdata/dist/latest/Europe/Brussels.json'
 
 const tzBrussels = new IANATimezone(
@@ -72,7 +72,7 @@ const tzBrussels = new IANATimezone(
   tzdataBrussels.map(dataToTimezoneOffset)
 )
 
-let jan1 = tzBrussels.makeDate(2000, 0, 1)
+let jan1 = new DateTz(2000, 1, 1, tzBrussels)
 
 // Equivalent to adding the offset to UTC of one hour on 2000-01-01.
 jan1 = new Date(Date.UTC(2000, 0, 1) + 1 * 60 * 60 * 1000)
@@ -80,18 +80,18 @@ jan1 = new Date(Date.UTC(2000, 0, 1) + 1 * 60 * 60 * 1000)
 
 ## Other Methods
 
-As well as making a date the timezone can be used to get the date parts:
-[[Timezone.year | `year`]], [[Timezone.monthIndex | `monthIndex`]],
-[[Timezone.weekday | `weekday`]], [[Timezone.day | `day`]],
-[Timezone.hours | `hours`], [[Timezone.minutes | `minutes`]],
-[[Timezone.seconds | `seconds`]] and [[Timezone.milliseconds | `milliseconds`]].
-A more general [[Timezone.dateParts | `dateparts`]] method can be used to get
+As well as making a date the timezone is used to get the date parts:
+[[DateTz.year | `year`]], [[DateTz.month | `month`]],
+[[DateTz.weekday | `weekday`]], [[DateTz.day | `day`]],
+[DateTz.hours | `hours`], [[DateTz.minutes | `minutes`]],
+[[DateTz.seconds | `seconds`]] and [[DateTz.milliseconds | `milliseconds`]].
+A more general [[DateTz.parts | `parts`]] method can be used to get
 multiple parts for efficiency.
 
-An [[Timezone.offset | `offset`]] method is provided which accepts a date
+An [[DateTz.offset | `offset`]] method is provided which accepts a date
 argument and returns the offset from UTC in minutes.
 
-Finally the [[Timezone.toISOString | `toISOString`]] method is provided to
+Finally the [[DateTz.toISOString | `toISOString`]] method is provided to
 display an ISO 8601 string with the timezone offset.
 
 ## What next ?
