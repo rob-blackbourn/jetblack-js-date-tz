@@ -1,5 +1,5 @@
-import { DateTz } from './DateTz'
 import { leapSeconds } from './leapSeconds'
+import { DateTz } from './DateTz'
 
 /**
  * Find the number of milliseconds between two dates.

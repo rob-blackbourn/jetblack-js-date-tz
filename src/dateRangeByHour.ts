@@ -1,5 +1,5 @@
-import { startOfHour } from './startOfHour'
 import { addHours } from './addHours'
+import { startOfHour } from './startOfHour'
 import { DateTz } from './DateTz'
 
 /**

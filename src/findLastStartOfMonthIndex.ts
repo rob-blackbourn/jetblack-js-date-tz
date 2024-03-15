@@ -1,5 +1,5 @@
-import { DateTz } from './DateTz'
 import { findLastDayIndex } from './findLastDayIndex'
+import { DateTz } from './DateTz'
 
 /**
  * Find the index of the last date that is the start of the month.

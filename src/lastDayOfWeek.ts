@@ -1,6 +1,6 @@
 import { addDays } from './addDays'
-import { DateTz } from './DateTz'
 import { startOfDay } from './startOfDay'
+import { DateTz } from './DateTz'
 
 /**
  * Find the last day of the week for a given date.

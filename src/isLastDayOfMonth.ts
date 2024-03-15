@@ -1,5 +1,5 @@
-import { DateTz } from './DateTz'
 import { daysInMonth } from './daysInMonth'
+import { DateTz } from './DateTz'
 
 /**
  * Check if the date is the last day of the month.

@@ -1,5 +1,5 @@
-import { Timezone } from './Timezone'
 import { DatePartResponse } from './types'
+import { Timezone } from './Timezone'
 
 class LocalTimezone extends Timezone {
   constructor() {

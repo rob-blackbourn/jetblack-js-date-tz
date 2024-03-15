@@ -1,5 +1,5 @@
-import { OffsetTimezone } from './OffsetTimezone'
 import { getClosestValues } from './utils'
+import { OffsetTimezone } from './OffsetTimezone'
 
 /**
  * A line from the tzdata database.

@@ -1,6 +1,6 @@
-import { DateTz } from './DateTz'
 import { addMinutes } from './addMinutes'
 import { startOfMinute } from './startOfMinute'
+import { DateTz } from './DateTz'
 
 /**
  * Creates a range of dates by minutes.

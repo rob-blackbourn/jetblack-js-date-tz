@@ -1,6 +1,6 @@
+import { diffInMilliseconds } from './diffInMilliseconds'
 import { DateTz } from './DateTz'
 import { MILLISECONDS_IN_DAY } from './constants'
-import { diffInMilliseconds } from './diffInMilliseconds'
 
 /**
  * Find the number of days between two dates including the fractional component.

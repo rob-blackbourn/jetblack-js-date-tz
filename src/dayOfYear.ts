@@ -1,5 +1,5 @@
-import { startOfYear } from './startOfYear'
 import { diffInCalDays } from './diffInCalDays'
+import { startOfYear } from './startOfYear'
 import { DateTz } from './DateTz'
 
 /**

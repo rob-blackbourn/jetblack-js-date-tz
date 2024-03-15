@@ -1,7 +1,7 @@
-import { Timezone } from './Timezone'
 import { tzUtc } from './UTCTimezone'
-import { MILLISECONDS_IN_MINUTE } from './constants'
 import { DatePartResponse } from './types'
+import { Timezone } from './Timezone'
+import { MILLISECONDS_IN_MINUTE } from './constants'
 
 export abstract class OffsetTimezone extends Timezone {
   /**

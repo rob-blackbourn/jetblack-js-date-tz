@@ -1,5 +1,5 @@
-import { DateTz } from './DateTz'
 import { findDayIndex } from './findDayIndex'
+import { DateTz } from './DateTz'
 
 /**
  * Find the index of the first date that is the start of the month.

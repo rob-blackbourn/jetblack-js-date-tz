@@ -1,6 +1,6 @@
-import { DateTz } from './DateTz'
-import { isLastDayOfMonth } from './isLastDayOfMonth'
 import { findLastIndex } from './utils'
+import { isLastDayOfMonth } from './isLastDayOfMonth'
+import { DateTz } from './DateTz'
 
 /**
  * Find the index of the last date that is the end of the month.

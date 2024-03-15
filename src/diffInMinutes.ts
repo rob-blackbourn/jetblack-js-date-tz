@@ -1,6 +1,6 @@
+import { diffInMilliseconds } from './diffInMilliseconds'
 import { DateTz } from './DateTz'
 import { MILLISECONDS_IN_MINUTE } from './constants'
-import { diffInMilliseconds } from './diffInMilliseconds'
 
 /**
  * Find the number of minutes between two dates including fractional seconds.

@@ -1,6 +1,6 @@
-import { DateTz } from './DateTz'
 import { daysInMonth } from './daysInMonth'
 import { quarterOfYear } from './quarterOfYear'
+import { DateTz } from './DateTz'
 
 /**
  * Find the last moment of the quarter.

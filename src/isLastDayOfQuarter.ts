@@ -1,7 +1,7 @@
-import { DateTz } from './DateTz'
 import { isDateEqual } from './isDateEqual'
 import { lastDayOfQuarter } from './lastDayOfQuarter'
 import { startOfDay } from './startOfDay'
+import { DateTz } from './DateTz'
 
 /**
  * Check if the date is the last day of the quarter.

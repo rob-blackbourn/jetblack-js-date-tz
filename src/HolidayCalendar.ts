@@ -1,8 +1,8 @@
-import { DateTz } from './DateTz'
+import { startOfDay } from './startOfDay'
 import { tzLocal } from './LocalTimezone'
+import { DateTz } from './DateTz'
 import { Timezone } from './Timezone'
 import { WeekendCalendar } from './WeekendCalendar'
-import { startOfDay } from './startOfDay'
 
 /**
  * A calendar class which supports weekends and an array of arbitrary dates.

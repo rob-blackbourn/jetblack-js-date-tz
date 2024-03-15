@@ -1,4 +1,3 @@
-import { DateTz } from './DateTz'
 import { tzLocal } from './LocalTimezone'
 import {
   I18nSettings,
@@ -6,9 +5,10 @@ import {
   getLocaleInfo,
   NameStyle
 } from './LocaleInfo'
-import { Timezone } from './Timezone'
 import { tzUtc } from './UTCTimezone'
 import { daysInMonth } from './daysInMonth'
+import { DateTz } from './DateTz'
+import { Timezone } from './Timezone'
 
 interface DateInfo {
   year: number

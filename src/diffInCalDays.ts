@@ -1,6 +1,6 @@
 import { diffInDays } from './diffInDays'
-import { tzUtc } from './UTCTimezone'
 import { startOfDay } from './startOfDay'
+import { tzUtc } from './UTCTimezone'
 import { DateTz } from './DateTz'
 
 /**

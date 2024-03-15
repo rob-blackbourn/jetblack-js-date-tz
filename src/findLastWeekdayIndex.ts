@@ -1,5 +1,5 @@
-import { DateTz } from './DateTz'
 import { findLastIndex } from './utils'
+import { DateTz } from './DateTz'
 
 /**
  * Find the index of the last date with the given weekday.

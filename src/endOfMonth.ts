@@ -1,5 +1,5 @@
-import { DateTz } from './DateTz'
 import { daysInMonth } from './daysInMonth'
+import { DateTz } from './DateTz'
 
 /**
  * Calculate the last moment of the month.

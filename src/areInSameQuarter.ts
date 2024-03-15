@@ -1,5 +1,5 @@
-import { DateTz } from './DateTz'
 import { quarterOfYear } from './quarterOfYear'
+import { DateTz } from './DateTz'
 
 /**
  * Compare two dates to see if they are in the same quarter of the year.
