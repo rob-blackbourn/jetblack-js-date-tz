@@ -27,7 +27,7 @@ npm install --save @jetblack/date-tz
 The date class takes an optional time zone.
 
 ```js
-import { DateTz, IntlTimezone } from '@jetblack/date-tz'
+import { DateTz, IntlTimezone, formatDate } from '@jetblack/date-tz'
 
 const tzChicago = new IntlTimezone('America/Chicago')
 
