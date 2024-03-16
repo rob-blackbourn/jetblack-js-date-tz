@@ -17,7 +17,6 @@ module.exports = {
           { title: 'Calculations', source: 'calculations.md' },
           { title: 'Date Arithmetic', source: 'date-arithmetic.md' },
           { title: 'Timezones', source: 'timezones.md' },
-          { title: 'IANA Timezones', source: 'iana-timezones.md' },
           { title: 'Calendars', source: 'calendars.md' }
         ]
       }

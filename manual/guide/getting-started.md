@@ -12,7 +12,14 @@ The library provides the usual convenience methods (e.g. [[addDays]], [[startOfD
 but with the addition of a timezone where necessary.
 
 ```js
-import { DateTz, startOfToday, tzLocal, tzUtc, fetchTimezone, IntlTimezone } from '@jetblack/date-tz'
+import {
+    fetchTimezone,
+    startOfToday,
+    tzLocal,
+    tzUtc,
+    DateTz,
+    IntlTimezone
+} from '@jetblack/date-tz'
 
 // Make a time in the UTC timezone
 const unixEpoch = new DateTz(1970, 1, 1, tzUtc)

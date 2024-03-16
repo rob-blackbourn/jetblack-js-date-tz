@@ -11,14 +11,14 @@ Unlike the built in date class months start at 1 for January.
 import { DateTz, tzLocal, tzUtc, IntlTimezone } from '@jetblack/date-tz'
 
 const d1 = new DateTz(2000, 6, 1, tzLocal)
-const d2 = new DateTz(2000, 0, 1, 12, 30, tzUtc)
+const d2 = new DateTz(2000, 1, 1, 12, 30, tzUtc)
 
 const tzTokyo = new IntlTimezone('Asia/Tokyo')
 const d3 = new DateTz(2000, 6, 1, 21, 0, 15, 250, tzTokyo)
 ```
 
 The {@linkcode parseDate} function constructs a date from a string and a given
-format. If the timezone offset is not specified the supplied timezone is used.
+format.
 
 ```js
 import { DateTz, tzLocal, tzUtc, fetchTimezone, parseDate } from '@jetblack/date-tz'
@@ -46,12 +46,12 @@ created. There are two ways of accessing the date parts:
 the parts, and individual accessors (e.g. {@linkcode Timezone.monthIndex | monthIndex}).
 
 ```js
-import { DateTz } from '@jetblack/dates'
+import { DateTz } from '@jetblack/dates-tz'
 
 const date = new DateTz()
-const { year, monthIndex, day} = date.parts
+const { year, month, day } = date.parts
 const y = date.year
-const m = date.monthIndex
+const m = date.month
 const d = date.day
 ```
 
@@ -75,16 +75,16 @@ timezone, rather than the local timezone. The
 The following demonstrates some of these functions.
 
 ```js
-import { formatDate, DateTzz, IntlTimezone } from '@jetblack/date'
+import { formatDate, DateTz, IntlTimezone } from '@jetblack/date-tz'
 
 const tzLondon = IntlTimezone('Europe/London')
 const tzTokyo = IntlTimezone('Asia/Tokyo')
 const tzChicago = IntlTimezone('America/Chicago')
 
 // Make the dates for 6:30am local time.
-const dateTokyo = new DateTz(2000, 0, 1, 6, 30, tzTokyo)
-const dateLondon = new DateTz(2000, 0, 1, 6, 30, tzLondon)
-const dateChicago = new DateTz(2000, 0, 1, 6, 30, tzChicago)
+const dateTokyo = new DateTz(2000, 1, 1, 6, 30, tzTokyo)
+const dateLondon = new DateTz(2000, 1, 1, 6, 30, tzLondon)
+const dateChicago = new DateTz(2000, 1, 1, 6, 30, tzChicago)
 
 // Show with toISOString.
 console.log([

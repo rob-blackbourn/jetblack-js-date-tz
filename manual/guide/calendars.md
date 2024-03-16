@@ -26,12 +26,12 @@ const cal = new HolidayCalendar(
   'cal',
   [6, 0], // Saturday and Sunday
   [
-    new DateTz(2015, 0, 1, tzLocal),   // New Years Day
-    new DateTz(2015, 3, 3, tzLocal),   // Good Friday
-    new DateTz(2015, 3, 6, tzLocal),   // Easter Monday
-    new DateTz(2015, 4, 1, tzLocal),   // May Day
-    new DateTz(2015, 11, 25, tzLocal), // Christmas day
-    new DateTz(2015, 11, 26, tzLocal)  // Boxing day
+    new DateTz(2015, 1, 1, tzLocal),   // New Years Day
+    new DateTz(2015, 4, 3, tzLocal),   // Good Friday
+    new DateTz(2015, 4, 6, tzLocal),   // Easter Monday
+    new DateTz(2015, 5, 1, tzLocal),   // May Day
+    new DateTz(2015, 12, 25, tzLocal), // Christmas day
+    new DateTz(2015, 12, 26, tzLocal)  // Boxing day
   ],
   tzLocal
 )
