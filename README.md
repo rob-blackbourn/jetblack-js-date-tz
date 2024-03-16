@@ -6,30 +6,20 @@ Timezone-aware date manipulation for JavaScript.
 
 ## Overview
 
-This project provides utilities for working with dates and timezones.
+This is a toolkit for working with dates and timezones.
 
-The JavaScript built-in [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-object is a simple offset from an epoch. It provides functions
-to resolve this into date components (days, months, years, etc.) in both the local
-timezone of the browser, and UTC.
+This library provides:
 
-This library provides two things:
-
-* Convenience methods for manipulating dates in both UTC and the local timezone.
+* A timezone aware date-time class [[DateTz]].
+* Timezone aware convenience methods for manipulating dates.
 * The ability to use IANA timezones (e.g. America/Chicago).
-
-The
-[IANA timezone database](https://www.iana.org/time-zones)
-has been made available in JSON format by
-a second project [jetblack-tzdata](https://github.com/rob-blackbourn/jetblack-tzdata).
-This allows the timezone data to be accessed statically, or dynamically through a HTTP GET (e.g. with `fetch`).
 
 ## Installation
 
 The package can be installed from npmjs.
 
 ```bash
-npm install --save @jetblack/date
+npm install --save @jetblack/date-tz
 ```
 
 ## Convenience Methods
@@ -38,17 +28,17 @@ The library provides the usual convenience methods (e.g. `addDays`, `startOfDay`
 but with the addition of a timezone.
 
 ```js
-import { startOfToday, tzLocal, tzUtc } from '@jetblack/date'
+import { DateTz, startOfDay, tzLocal, tzUtc } from '@jetblack/date-tz'
 
 // Get the start of today relative to the local timezone.
-const todayLocal = startOfToday()
+const todayLocal = startOfDay(new DateTz())
 
 // If the timezone isn't specified, it defaults to the local timezone.
 // The following passes it explicitly.
-const todayLocalExplicit = startOfToday(tzLocal)
+const todayLocalExplicit = startOfDay(new DateTz(tzLocal))
 
 // The start of today relative to UTC can be found by passing the UTC timezone.
-const todayUTC = startOfToday(tzUtc)
+const todayUTC = startOfDay(new DateTz(tzUtc))
 
 // If the browser had timezone information the following would find the
 // start of the day in Tokyo.
@@ -71,7 +61,7 @@ npm install --save @jetblack/tzdata
 Depending on the environment plugins you may be able to import the JSON directly.
 
 ```js
-import { IANATimezone, dataToTimezoneOffset } from '@jetblack/date'
+import { IANATimezone, dataToTimezoneOffset } from '@jetblack/date-tz'
 import BRUSSELS_TZDATA from '@jetblack/tzdata/dist/latest/Europe/Brussels.json'
 
 const tzBrussels = new IANATimezone(
@@ -80,7 +70,7 @@ const tzBrussels = new IANATimezone(
   BRUSSELS_TZDATA.map(dataToTimezoneOffset)
 )
 
-const newYearsDay = tzBrussels.makeDate(2000, 1, 1).toISOString()
+const newYearsDay = new DateTz(2000, 1, 1, tzBrussels).toISOString()
 // returns "2000-01-01T01:00:00Z"
 ```
 
@@ -93,7 +83,7 @@ The following example shows how this can be done using the minified version
 of the data.
 
 ```js
-import { IANATimezone, minDataToTimezoneOffset } from '@jetblack/date'
+import { IANATimezone, minDataToTimezoneOffset } from '@jetblack/date-tz'
 
 const timezoneName = 'Europe/Brussels'
 fetch(`https://cdn.jsdelivr.net/npm/@jetblack/tzdata/dist/latest/${timezoneName}.min.json`)
@@ -101,7 +91,7 @@ fetch(`https://cdn.jsdelivr.net/npm/@jetblack/tzdata/dist/latest/${timezoneName}
   .then(data => {
     const zoneData = data.map(minDataToTimezoneOffset)
     const tzBrussels = new IANATimezone(timeZoneName, zoneData)
-    const newYearsDay = tzBrussels.makeDate(2000, 0, 1)
+    const newYearsDay = new DateTz(2000, 0, 1, tzBrussels)
     // returns "2000-01-01T01:00:00Z"
   })
   .catch(error => console.error(error))
@@ -116,10 +106,10 @@ Timezone offsets can be calculated by using Intl.DateTimeFormat. This may be slo
 than fetching the database, but it is more convenient.
 
 ```js
-import { IntlTimezone } from '@jetblack/date'
+import { DateTz, IntlTimezone } from '@jetblack/date-tz'
 
 const tzBrussels = new IntlTimezone('Europe/Brussels')
 
-const newYearsDay = tzBrussels.makeDate(2000, 1, 1).toISOString()
+const newYearsDay = new DateTz(2000, 1, 1, tzBrussels).toISOString()
 // returns "2000-01-01T01:00:00Z"
 ```
