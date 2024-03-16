@@ -34,7 +34,6 @@ export class DateTz {
   constructor(value: number, tz?: Timezone)
   constructor(dateString: string, tz?: Timezone)
   constructor(dateObject: Date, tz?: Timezone)
-  constructor(year: number, month: number, tz?: Timezone)
   constructor(year: number, month: number, day: number, tz?: Timezone)
   constructor(
     year: number,

@@ -54,4 +54,10 @@ describe('DateTz', () => {
     const offset = (date.getTime() - dateAsChicago.getTime()) / 60 / 1000
     expect(offset).toBe(dateAsChicago.offset)
   })
+
+  it('should construct', () => {
+    const d1 = new DateTz(new Date(), tzUtc)
+    const d2 = new DateTz(0, tzUtc)
+    const d3 = new DateTz(1970, 1, 1, tzUtc)
+  })
 })
