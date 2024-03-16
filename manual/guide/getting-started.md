@@ -10,6 +10,8 @@ npm install --save @jetblack/date-tz
 
 The main [[DateTz]] class provides the functionality of the built in `Date` class
 in a modern form, with some of the idiosyncrasies removed (e.g. month 1 is January).
+Things like year and month are properties. The object itself is immutable; the
+convenience methods like [[addMonths]] return new objects.
 
 ## Convenience Methods
 
