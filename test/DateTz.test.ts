@@ -41,4 +41,17 @@ describe('DateTz', () => {
     expect(date.milliseconds).toBe(0)
     expect(date.weekday).toBe(4)
   })
+
+  it('should have valid IANA properties', () => {
+    const date = new DateTz(1970, 1, 1, 19, 30, tzUtc)
+    const tzChicago = new IntlTimezone('America/Chicago')
+    const dateWithChicago = date.with(tzChicago)
+    expect(dateWithChicago.toISOString()).toBe('1970-01-01T13:30:00-06:00')
+
+    const dateAsChicago = date.as(tzChicago)
+    expect(dateAsChicago.toISOString()).toBe('1970-01-01T19:30:00-06:00')
+
+    const offset = (date.getTime() - dateAsChicago.getTime()) / 60 / 1000
+    expect(offset).toBe(dateAsChicago.offset)
+  })
 })

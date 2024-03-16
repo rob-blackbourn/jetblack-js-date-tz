@@ -24,8 +24,31 @@ npm install --save @jetblack/date-tz
 
 ## Usage
 
-The library provides the usual convenience methods (e.g. `addDays`, `startOfDay`, etc.),
-but with the addition of a timezone.
+The date class takes an optional time zone.
+
+```js
+import { DateTz, IntlTimezone } from '@jetblack/date-tz'
+
+const tzChicago = new IntlTimezone('America/Chicago')
+
+// 7:30 pm UTC
+const date = new DateTz(1970, 1, 1, 19, 30, tzUtc)
+
+const dateAsChicago = date.as(tzChicago)
+console.log(dateAsChicago.toISOString())
+// '1970-01-01T19:30:00-06:00'
+const offsetHours = (date.getTime() - dateAsChicago.getTime()) / 60 / 60 / 1000
+console.log(offsetHours)
+// 6
+
+const dateWithChicago = date.with(tzChicago)
+console.log(dateWithChicago.toISOString())
+// '1970-01-01T13:30:00-06:00'
+console.log(`When it's ${formatDate(date, 'HH:MM')} in UTC it's ${formatDate(dateChicago, 'HH:MM')} in Chicago`)
+// When it's 19:30 in UTC it's 13:30 in Chicago
+```
+
+The library provides the usual convenience methods (e.g. [[addDays]], `startOfDay`, etc.).
 
 ```js
 import { DateTz, startOfDay, tzLocal, tzUtc } from '@jetblack/date-tz'
