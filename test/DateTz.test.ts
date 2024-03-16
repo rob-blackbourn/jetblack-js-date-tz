@@ -56,8 +56,30 @@ describe('DateTz', () => {
   })
 
   it('should construct', () => {
-    const d1 = new DateTz(new Date(), tzUtc)
-    const d2 = new DateTz(0, tzUtc)
-    const d3 = new DateTz(1970, 1, 1, tzUtc)
+    const date = new DateTz(1970, 1, 1, tzLocal)
+    const time = date.getTime()
+
+    const dates = [
+      new DateTz(new Date(time)),
+      new DateTz(new Date(time), tzLocal),
+      new DateTz(time),
+      new DateTz(time, tzLocal),
+      new DateTz('1970-01-01T00:00:00'),
+      new DateTz('1970-01-01T00:00:00', tzLocal),
+      new DateTz(1970, 1),
+      new DateTz(1970, 1, tzLocal),
+      new DateTz(1970, 1, 1),
+      new DateTz(1970, 1, 1, tzLocal),
+      new DateTz(1970, 1, 1, 0),
+      new DateTz(1970, 1, 1, 0, tzLocal),
+      new DateTz(1970, 1, 1, 0, 0),
+      new DateTz(1970, 1, 1, 0, 0, tzLocal),
+      new DateTz(1970, 1, 1, 0, 0, 0),
+      new DateTz(1970, 1, 1, 0, 0, 0, tzLocal),
+      new DateTz(1970, 1, 1, 0, 0, 0, 0),
+      new DateTz(1970, 1, 1, 0, 0, 0, 0, tzLocal)
+    ]
+
+    dates.forEach(actual => expect(actual.getTime()).toBe(date.getTime()))
   })
 })
