@@ -27,7 +27,7 @@ describe('DateTz', () => {
     expect(date.weekday).toBe(4)
   })
 
-  it('should have valid IANA properties', () => {
+  it('should have valid date properties', () => {
     const tzChicago = new IntlTimezone('America/Chicago')
     const date = new DateTz(1970, 1, 1, tzChicago)
     expect(date.toISOString()).toBe('1970-01-01T00:00:00-06:00')
