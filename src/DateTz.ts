@@ -26,15 +26,14 @@ export class DateTz {
    *
    * In addition to the above a DateTz object may be passed.
    */
-  constructor()
+  constructor(tz?: Timezone)
   constructor(value: number)
   constructor(dateString: string)
   constructor(dateObject: Date)
   constructor(dateTz: DateTz)
-  constructor(tz: Timezone)
-  constructor(value: number, tz: Timezone)
-  constructor(dateString: string, tz: Timezone)
-  constructor(dateObject: Date, tz: Timezone)
+  constructor(value: number, tz?: Timezone)
+  constructor(dateString: string, tz?: Timezone)
+  constructor(dateObject: Date, tz?: Timezone)
   constructor(year: number, month: number, tz?: Timezone)
   constructor(year: number, month: number, day: number, tz?: Timezone)
   constructor(
