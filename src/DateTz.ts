@@ -220,7 +220,7 @@ export class DateTz {
 
   /** Return a string representation. */
   toString() {
-    return `${this.date.toISOString()} ${this.tz.name}`
+    return `${this.toISOString()} ${this.tz.name}`
   }
   /** Get the value as a number */
   valueOf() {

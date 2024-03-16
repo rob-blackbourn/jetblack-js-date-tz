@@ -6,6 +6,11 @@ The package can be installed from [npmjs](https://www.npmjs.com/package/@jetblac
 npm install --save @jetblack/date-tz
 ```
 
+## DateTz
+
+The main [[DateTz]] class provides the functionality of the built in `Date` class
+in a modern form, with some of the idiosyncrasies removed (e.g. month 1 is January).
+
 ## Convenience Methods
 
 The library provides the usual convenience methods (e.g. [[addDays]], [[startOfDay]], etc.),
