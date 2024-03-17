@@ -1,7 +1,7 @@
 {
   "name": "@jetblack/date-tz",
   "private": false,
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "Timezone aware date utilities",
   "keywords": [
     "date",
@@ -11,7 +11,8 @@
     "tz"
   ],
   "main": "dist/cjs/index.js",
-  "browser": "dist/es/index.js",
+  "module": "dist/es/index.js",
+  "browser": "dist/min/es/index.js",
   "repository": "git@github.com:rob-blackbourn/jetblack-js-date-tz.git",
   "homepage": "https://github.com/rob-blackbourn/jetblack-js-date-tz",
   "bugs": "https://github.com/rob-blackbourn/jetblack-js-date-tz/issues",
@@ -27,8 +28,10 @@
   "devDependencies": {
     "@jetblack/tzdata": "^0.4.0",
     "@knodes/typedoc-plugin-pages": "^0.22.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.1",
     "@types/jest": "^27.4.1",
+    "glob": "^10.3.10",
     "http-server": "^14.1.0",
     "jest": "^27.5.1",
     "rimraf": "^3.0.2",
