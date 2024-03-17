@@ -84,8 +84,8 @@ export class DateTz {
       } else if (typeof args[0] === 'string') {
         // Date only strings are utc
         if (args[0].length <= 'YYYY-MM-DD'.length) {
-          this._tz = tzUtc
-          this._date = new Date(args[0])
+          this._tz = tzLocal
+          this._date = tzUtc.as(new Date(args[0]), tzLocal)
         } else {
           this._tz = tzLocal
           this._date = new Date(args[0])

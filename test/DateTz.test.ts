@@ -64,6 +64,8 @@ describe('DateTz', () => {
       new DateTz(new Date(time), tzLocal),
       new DateTz(time),
       new DateTz(time, tzLocal),
+      new DateTz('1970-01-01'),
+      new DateTz('1970-01-01', tzLocal),
       new DateTz('1970-01-01T00:00:00'),
       new DateTz('1970-01-01T00:00:00', tzLocal),
       new DateTz(1970, 1),
